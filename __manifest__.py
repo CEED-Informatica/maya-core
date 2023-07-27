@@ -38,7 +38,11 @@
         'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
-        'data/courses.xml'
+         # datos de modelos
+        'data/courses.xml',
+        'data/subjects/tic.xml',
+        'data/subjects/hit.xml',
+        'data/subjects/common.xml',
     ],
     'installable': True,
     'application': True,

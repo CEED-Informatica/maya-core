@@ -1,0 +1,225 @@
+<odoo>
+  <data>
+    <!-- Módulos GIAT -->
+    <record model="maya_core.subject" id="maya_core.subject_GIAT_FOL"> 
+      <field name="abbr">FOL</field>
+      <field name="code">0389</field>
+      <field name="name">Formación y Orientación Laboral</field>
+      <field name="year">1</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GIAT')])]"/>                            
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_GIAT_SIT"> 
+      <field name="abbr">SIT</field>
+      <field name="code">0385</field>
+      <field name="name">Servicios de información turística</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GIAT')])]"/>                            
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_GIAT_PGAT"> 
+      <field name="abbr">PGAT</field>
+      <field name="code">0386</field>
+      <field name="name">Procesos de guía y asistencia turística</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GIAT')])]"/>                            
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_GIAT_DPT"> 
+      <field name="abbr">DPT</field>
+      <field name="code">0387</field>
+      <field name="name">Diseño de productos turísticos</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GIAT')])]"/>                            
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_GIAT_EIE"> 
+      <field name="abbr">EIE</field>
+      <field name="code">0390</field>
+      <field name="name">Empresa e iniciativa emprendedora</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GIAT')])]"/>                            
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_GIAT_PRY"> 
+      <field name="abbr">PRY</field>
+      <field name="code">0388</field>
+      <field name="name">Proyecto de guía, información y asistencia turísticas</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GIAT')])]"/>                            
+    </record>
+
+    <!-- Módulos GAT -->
+    <record model="maya_core.subject" id="maya_core.subject_GAT_DAT"> 
+      <field name="abbr">DAT</field>
+      <field name="code">0174</field>
+      <field name="name">Dirección de alojamientos turísticos</field>
+      <field name="year">1</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GAT')])]"/>                            
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_GAT_RHA"> 
+      <field name="abbr">RHA</field>
+      <field name="code">0177</field>
+      <field name="name">Recursos humanos en el alojamiento</field>
+      <field name="year">1</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GAT')])]"/>                            
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_GAT_FOL"> 
+      <field name="abbr">FOL</field>
+      <field name="code">0182</field>
+      <field name="name">Formación y Orientación Laboral</field>
+      <field name="year">1</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GAT')])]"/>                            
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_GAT_GDP"> 
+      <field name="abbr">GDP</field>
+      <field name="code">0175</field>
+      <field name="name">Gestión del departamento de pisos</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GAT')])]"/>                            
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_GAT_RR"> 
+      <field name="abbr">RR</field>
+      <field name="code">0176</field>
+      <field name="name">Recepción y reservas</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GAT')])]"/>                            
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_GAT_CE"> 
+      <field name="abbr">CE</field>
+      <field name="code">0178</field>
+      <field name="name">Comercialización de eventos</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GAT')])]"/>                            
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_GAT_EIE">
+      <field name="abbr">EIE</field>
+      <field name="code">0183</field>
+      <field name="name">Empresa e iniciativa emprendedora</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GAT')])]"/>                            
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_GAT_PRY">
+      <field name="abbr">PRY</field>
+      <field name="code">0483</field>
+      <field name="name">Proyecto de gestión de alojamientos turísticos</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GAT')])]"/>                            
+    </record>
+
+    <!-- Módulos AVGE-->
+    <record model="maya_core.subject" id="maya_core.subject_AVGE_FOL"> 
+      <field name="abbr">FOL</field>
+      <field name="code">0401</field>
+      <field name="name">Formación y orientación laboral</field>
+      <field name="year">1</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_AVGE')])]"/>                            
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_AVGE_GPT"> 
+      <field name="abbr">GPT</field>
+      <field name="code">0397</field>
+      <field name="name">Gestión de productos turísticos</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_AVGE')])]"/>                            
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_AVGE_VST"> 
+      <field name="abbr">VST</field>
+      <field name="code">0398</field>
+      <field name="name">Venta de servicios turísticos</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_AVGE')])]"/>                            
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_AVGE_DEIT">
+      <field name="abbr">DEIT</field>
+      <field name="code">0399</field>
+      <field name="name">Dirección de entidades de intermediación turística</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_AVGE')])]"/>                            
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_AVGE_EIE"> 
+      <field name="abbr">EIE</field>
+      <field name="code">0402</field>
+      <field name="name">Empresa e iniciativa emprendedora</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_AVGE')])]"/>
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_AVGE_PRY"> 
+      <field name="abbr">PRY</field>
+      <field name="code">0400</field>
+      <field name="name">Proyecto de Agencias de viajes y gestión de eventos</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_AVGE')])]"/>                            
+    </record>
+
+    <!-- Módulos MIX (Varios ciclos)-->
+	
+    <record model="maya_core.subject" id="maya_core.subject_MIX_EMT"> 
+      <field name="abbr">EMT</field>
+      <field name="code">0171</field>
+      <field name="name">Estructura del mercado turístico</field>
+      <field name="year">1</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GIAT'), ref('maya_core.course_GAT'),ref('maya_core.course_AVGE')])]"/>                            
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_MIX_PRP"> 
+      <field name="abbr">PRP</field>
+      <field name="code">0172</field>
+      <field name="name">Protocolo y relaciones públicas</field>
+      <field name="year">1</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GIAT'), ref('maya_core.course_GAT'),ref('maya_core.course_AVGE')])]"/>                            
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_MIX_MT"> 
+      <field name="abbr">MT</field>
+      <field name="code">0173</field>
+      <field name="name">Marketing turístico</field>
+      <field name="year">1</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GIAT'), ref('maya_core.course_GAT'),ref('maya_core.course_AVGE')])]"/>
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_MIX_RT"> 
+      <field name="abbr">RT</field>
+      <field name="code">0384</field>
+      <field name="name">Recursos turísticos</field>
+      <field name="year">1</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GIAT'), ref('maya_core.course_AVGE')])]"/>
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_MIX_DT"> 
+      <field name="abbr">DT</field>
+      <field name="code">0383</field>
+      <field name="name">Destinos turísticos</field>
+      <field name="year">1</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GIAT'), ref('maya_core.course_AVGE')])]"/>       
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_MIX_ING"> 
+      <field name="abbr">ING</field>
+      <field name="code">0179</field>
+      <field name="name">Inglés</field>
+      <field name="year">1</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GIAT'), ref('maya_core.course_GAT'),ref('maya_core.course_AVGE')])]"/>
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_MIX_LE2"> 
+      <field name="abbr">LE2</field>
+      <field name="code">0180</field>
+      <field name="name">Segunda lengua extranjera</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GIAT'), ref('maya_core.course_GAT'),ref('maya_core.course_AVGE')])]"/>                           
+    </record>
+
+  </data>
+</odoo>
