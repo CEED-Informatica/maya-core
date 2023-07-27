@@ -17,8 +17,14 @@
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="maya_core.action_course">
-      <field name="name">Ciclo</field>
+      <field name="name">Ciclos</field>
       <field name="res_model">maya_core.course</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+     <record model="ir.actions.act_window" id="maya_core.action_subject">
+      <field name="name">Módulos</field>
+      <field name="res_model">maya_core.subject</field>
       <field name="view_mode">tree,form</field>
     </record>
 
@@ -27,6 +33,8 @@
 
     <!-- menu categories -->
     <menuitem name="Centro" id="maya_core.school" parent="maya_core.menu_root"/>
+    <menuitem name="Módulos" id="maya_core.school_subject" parent="maya_core.school"
+              action="maya_core.action_subject"/>
 
     <!-- actions -->
     <menuitem name="Ciclos" id="maya_core.school_course" parent="maya_core.school"
