@@ -1,7 +1,6 @@
 <odoo>
   <data>
     <!-- explicit list view definition -->
-
     <record model="ir.ui.view" id="maya_core.course_tree">
       <field name="name">Lista de Ciclos Formativos</field>
       <field name="model">maya_core.course</field>
@@ -9,6 +8,8 @@
         <tree>
           <field name="name"/>
           <field name="abbr"/>
+          <field name="code"/>
+          <field name="subjects_ids"/>
         </tree>
       </field>
     </record>
@@ -33,12 +34,12 @@
 
     <!-- menu categories -->
     <menuitem name="Centro" id="maya_core.school" parent="maya_core.menu_root"/>
-    <menuitem name="Módulos" id="maya_core.school_subject" parent="maya_core.school"
-              action="maya_core.action_subject"/>
-
+    
     <!-- actions -->
     <menuitem name="Ciclos" id="maya_core.school_course" parent="maya_core.school"
               action="maya_core.action_course"/>
+    <menuitem name="Módulos" id="maya_core.school_subject" parent="maya_core.school"
+              action="maya_core.action_subject"/>
  
   </data>
 </odoo>

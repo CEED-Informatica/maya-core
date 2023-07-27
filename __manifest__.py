@@ -38,7 +38,7 @@
         'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
-        'data/course.xml'
+        'data/courses.xml'
     ],
     'installable': True,
     'application': True,
