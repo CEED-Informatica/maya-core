@@ -61,7 +61,7 @@
       <field name="name">Transporte y Logística</field>
     </record>
 
-    <record model="maya_core.course" id="maya_core.course_GVEC">
+    <record model="maya_core.course" id="maya_core.course_GEVEC">
       <field name="abbr">GEVEC</field>
       <field name="code">899104</field>
       <field name="name">Gestión y Ventas de Espacios Comerciales</field>
