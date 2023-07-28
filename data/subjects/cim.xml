@@ -1,0 +1,233 @@
+<odoo>
+  <data>
+    <!-- Módulos TIL -->
+    <record model="maya_core.subject" id="maya_core.subject_TIL_FOL">
+      <field name="abbr">LAP</field>
+      <field name="code">0631</field>
+      <field name="name">Formación y orientación laboral</field>
+      <field name="year">1</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_TIL')])]"/>                      
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_TIL_GATL">
+      <field name="abbr">GATL</field>
+      <field name="code">0621</field>
+      <field name="name">Gestión administrativa del transporte y la logística</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_TIL')])]"/>
+    </record>
+		
+    <record model="maya_core.subject" id="maya_core.subject_TIL_CTL">
+      <field name="abbr">CTL</field>
+      <field name="code">0624</field>
+      <field name="name">Comercialización del transporte y la logística</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_TIL')])]"/>
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_TIL_OTV">
+      <field name="abbr">OTV</field>
+      <field name="code">0628</field>
+      <field name="name">Organización del transporte de viajeros</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_TIL')])]"/>
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_TIL_OTM">
+      <field name="abbr">OTM</field>
+      <field name="code">0629</field>
+      <field name="name">Organización del transporte de mercancías</field>
+      <field name="year">2</field>    
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_TIL')])]"/>
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_TIL_PRY">
+      <field name="abbr">PRY</field>
+      <field name="code">0630</field>
+      <field name="name">Proyecto de transporte y logística</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_TIL')])]"/>                      
+    </record>
+		
+    <!-- Módulos CI -->
+    <record model="maya_core.subject" id="maya_core.subject_CI_FOL">
+      <field name="abbr">FOL</field>
+      <field name="code">0829</field>
+      <field name="name">Formación y orientación laboral</field>
+      <field name="year">1</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_CI')])]"/>                      
+    </record>
+	
+    <record model="maya_core.subject" id="maya_core.subject_TIL_SIM">
+      <field name="abbr">SIM</field>
+      <field name="code">0822</field>
+      <field name="name">Sistema de información de mercados</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_CI')])]"/>  
+    </record>
+	
+    <record model="maya_core.subject" id="maya_core.subject_CI_MIN">
+      <field name="abbr">MIN</field>
+      <field name="code">0823</field>
+      <field name="name">Marketing internacional</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_CI')])]"/>  
+    </record>
+	
+    <record model="maya_core.subject" id="maya_core.subject_CI_NEI">
+      <field name="abbr">NEI</field>
+      <field name="code">0824</field>
+      <field name="name">Negociación internacional</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_CI')])]"/>  
+    </record>
+	
+    <record model="maya_core.subject" id="maya_core.subject_CI_FIN">
+      <field name="abbr">FIN</field>
+      <field name="code">0825</field>
+      <field name="name">Financiación internacional</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_CI')])]"/>  
+    </record>
+	
+    <record model="maya_core.subject" id="maya_core.subject_CI_MPI">
+      <field name="abbr">MPI</field>
+      <field name="code">0826</field>
+      <field name="name">Medios de pago internacional</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_CI')])]"/>  
+    </record>
+	
+    <record model="maya_core.subject" id="maya_core.subject_CI_CDI">
+      <field name="abbr">CDI</field>
+      <field name="code">0827</field>
+      <field name="name">Comercio digital internacional</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_CI')])]"/>  
+    </record>
+	
+    <record model="maya_core.subject" id="maya_core.subject_CI_PRY">
+      <field name="abbr">PRY</field>
+      <field name="code">0828</field>
+      <field name="name">Proyecto de comercio internacional</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_CI')])]"/>                      
+    </record>
+	
+	  <!-- Módulos GEVEC -->
+    <record model="maya_core.subject" id="maya_core.subject_GEVEC_PMA">
+      <field name="abbr">PMA</field>
+      <field name="code">0930</field>
+      <field name="name">Políticas de marketing</field>
+      <field name="year">1</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GEVEC')])]"/>                      
+    </record>
+	
+    <record model="maya_core.subject" id="maya_core.subject_GEVEC_PM">
+      <field name="abbr">PM</field>
+      <field name="code">0931</field>
+      <field name="name">Políticas de marketing</field>
+      <field name="year">1</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GEVEC')])]"/>                      
+    </record>
+	
+    <record model="maya_core.subject" id="maya_core.subject_GEVEC_ICO">
+      <field name="abbr">ICO</field>
+      <field name="code">1010</field>
+      <field name="name">Investigación comerciaL</field>
+      <field name="year">1</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GEVEC')])]"/>       	  
+    </record>
+	
+    <record model="maya_core.subject" id="maya_core.subject_GEVEC_FOL">
+      <field name="abbr">FOL</field>
+      <field name="code">0933</field>
+      <field name="name">Formación y orientación laboral</field>
+      <field name="year">1</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GEVEC')])]"/>  
+    </record>
+	
+    <record model="maya_core.subject" id="maya_core.subject_GEVEC_ADE">
+      <field name="abbr">LAP</field>
+      <field name="code">0926</field>
+      <field name="name">Escaparatismo y diseño de espacios comerciales</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GEVEC')])]"/>  
+    </record>
+	
+    <record model="maya_core.subject" id="maya_core.subject_GEVEC_GPP">
+      <field name="abbr">GPP</field>
+      <field name="code">0927</field>
+      <field name="name">Gestión de productos y promociones en el punto de venta</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GEVEC')])]"/>       
+     </record>
+	 
+    <record model="maya_core.subject" id="maya_core.subject_GEVEC_OEV">
+      <field name="abbr">OEV</field>
+      <field name="code">0928</field>
+      <field name="name">Organización de equipos de ventas</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GEVEC')])]"/>                      
+    </record>
+	
+    <record model="maya_core.subject" id="maya_core.subject_GEVEC_TVN">
+      <field name="abbr">TVN</field>
+      <field name="code">0929</field>
+      <field name="name">Técnicas de venta y negociación</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GEVEC')])]"/>                      
+    </record>
+	
+    <record model="maya_core.subject" id="maya_core.subject_GEVEC_PRY">
+      <field name="abbr">PRY</field>
+      <field name="code">0932</field>
+      <field name="name">Proyecto de transporte y logística</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GEVEC')])]"/>                      
+    </record>
+
+    <!-- Módulos MIX (Varios ciclos)-->
+    <record model="maya_core.subject" id="maya_core.subject_MIX_GEFE">
+      <field name="abbr">GEFE</field>
+      <field name="code">0623</field>
+      <field name="name">Gestión económica y financiera de la empresa</field>
+      <field name="year">1</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_TIL'), ref('maya_core.course_CI'), ref('maya_core.course_GEVEC')])]"/> 
+    </record>
+	
+	  <record model="maya_core.subject" id="maya_core.subject_MIX_GACI">
+      <field name="abbr">GACI</field>
+      <field name="code">0627</field>
+      <field name="name">Gestión administrativa del comercio internacional</field>
+      <field name="year">1</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_TIL'), ref('maya_core.course_CI')])]"/>                      
+    </record>
+	
+    <record model="maya_core.subject" id="maya_core.subject_MIX_LAL">
+      <field name="abbr">LAL</field>
+      <field name="code">0625</field>
+      <field name="name">Logística de almacenamiento</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_TIL'), ref('maya_core.course_CI'), ref('maya_core.course_GEVEC')])]"/>
+    </record>
+	
+    <record model="maya_core.subject" id="maya_core.subject_MIX_TIM">
+      <field name="abbr">TIM</field>
+      <field name="code">0622</field>
+      <field name="name">Transporte internacional de mercancías</field>
+      <field name="year">1</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_TIL'), ref('maya_core.course_CI')])]"/>
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_MIX_LAP">
+      <field name="abbr">LAP</field>
+      <field name="code">0626</field>
+      <field name="name">Logística de aprovisionamiento</field>
+      <field name="year">2</field>  
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GEVEC'), ref('maya_core.course_TIL')])]"/>
+    </record>
+
+	
+  </data>
+</odoo>

@@ -6,7 +6,7 @@
       <field name="code">TUT1</field>
       <field name="name">Tutoría 1º</field>
       <field name="year">1</field>
-      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_DAW'), ref('maya_core.course_DAM'), ref('maya_core.course_ASIR'), ref('maya_core.course_GIAT'), ref('maya_core.course_GAT'), ref('maya_core.course_AVGE')])]"/>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_DAW'), ref('maya_core.course_DAM'), ref('maya_core.course_ASIR'), ref('maya_core.course_GIAT'), ref('maya_core.course_GAT'), ref('maya_core.course_AVGE'), ref('maya_core.course_CI'), ref('maya_core.course_TIL'), ref('maya_core.course_GEVEC')])]"/>
     </record>
 
     <record model="maya_core.subject" id="maya_core.subject_MIX_TUT2">
@@ -14,7 +14,15 @@
       <field name="code">TUT2</field>
       <field name="name">Tutoría 2º</field>
       <field name="year">2</field>
-      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_DAW'), ref('maya_core.course_DAM'), ref('maya_core.course_ASIR'), ref('maya_core.course_GIAT'), ref('maya_core.course_GAT'), ref('maya_core.course_AVGE')])]"/> 
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_DAW'), ref('maya_core.course_DAM'), ref('maya_core.course_ASIR'), ref('maya_core.course_GIAT'), ref('maya_core.course_GAT'), ref('maya_core.course_AVGE'), ref('maya_core.course_CI'), ref('maya_core.course_TIL'), ref('maya_core.course_GEVEC')])]"/> 
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_MIX_ING"> 
+      <field name="abbr">ING</field>
+      <field name="code">0179</field>
+      <field name="name">Inglés</field>
+      <field name="year">1</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GIAT'), ref('maya_core.course_GAT'),ref('maya_core.course_AVGE'), ref('maya_core.course_TIL'), ref('maya_core.course_CI'), ref('maya_core.course_TIL'), ref('maya_core.course_GEVEC')])]"/>
     </record>
 
     <record model="maya_core.subject" id="maya_core.subject_MIX_INGI">
@@ -22,7 +30,7 @@
       <field name="code">CV0003</field>
       <field name="name">Inglés Técnico I</field>
       <field name="year">1</field>
-      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_DAW'), ref('maya_core.course_DAM'), ref('maya_core.course_ASIR'), ref('maya_core.course_GIAT'), ref('maya_core.course_GAT'), ref('maya_core.course_AVGE')])]"/>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_DAW'), ref('maya_core.course_DAM'), ref('maya_core.course_ASIR'), ref('maya_core.course_GIAT'), ref('maya_core.course_GAT'), ref('maya_core.course_AVGE'), ref('maya_core.course_CI'), ref('maya_core.course_TIL'), ref('maya_core.course_GEVEC')])]"/>
     </record> 
 
     <record model="maya_core.subject" id="maya_core.subject_MIX_INGII">
@@ -30,7 +38,7 @@
       <field name="code">CV0004</field>
       <field name="name">Inglés Técnico II</field>
       <field name="year">2</field>
-      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_DAW'), ref('maya_core.course_DAM'), ref('maya_core.course_ASIR'), ref('maya_core.course_GIAT'), ref('maya_core.course_GAT'), ref('maya_core.course_AVGE')])]"/>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_DAW'), ref('maya_core.course_DAM'), ref('maya_core.course_ASIR'), ref('maya_core.course_GIAT'), ref('maya_core.course_GAT'), ref('maya_core.course_AVGE'), ref('maya_core.course_CI'), ref('maya_core.course_TIL'), ref('maya_core.course_GEVEC')])]"/>
     </record>
   </data>
 </odoo>

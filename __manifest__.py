@@ -42,6 +42,7 @@
         'data/courses.xml',
         'data/subjects/tic.xml',
         'data/subjects/hit.xml',
+        'data/subjects/cim.xml',
         'data/subjects/common.xml',
     ],
     'installable': True,
