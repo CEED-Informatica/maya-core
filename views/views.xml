@@ -27,6 +27,19 @@
       </field>
     </record>
 
+    <record model="ir.ui.view" id="maya_core.maya_core_tree">
+      <field name="name">Lista de cargos</field>
+      <field name="model">maya_core.rol</field>
+      <field name="arch" type="xml">
+        <tree limit="25">
+          <field name="description" />
+          <field name="rol"/>
+          <field name="course_id"/>
+          <field name="departament_id"/>
+        </tree>
+      </field>
+    </record>
+
     <!-- actions opening views on models -->
     <record model="ir.actions.act_window" id="maya_core.action_departament">
       <field name="name">Departamentos</field>
@@ -46,6 +59,12 @@
       <field name="view_mode">tree,form</field>
     </record>
 
+    <record model="ir.actions.act_window" id="maya_core.action_rol">
+      <field name="name">Cargos</field>
+      <field name="res_model">maya_core.rol</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
     <!-- Top menu item -->
     <menuitem name="Maya | Core" id="maya_core.menu_root"/>
 
@@ -55,10 +74,12 @@
     <!-- actions -->
     <menuitem name="Departamentos" id="maya_core.school_departament" parent="maya_core.school"
               action="maya_core.action_departament" sequence="1"/>
-    <menuitem name="Ciclos" id="maya_core.school_course" sequence="3" parent="maya_core.school"
+    <menuitem name="Ciclos" id="maya_core.school_course" sequence="2" parent="maya_core.school"
               action="maya_core.action_course"/>
-    <menuitem name="Módulos" id="maya_core.school_subject" sequence="4" parent="maya_core.school"
+    <menuitem name="Módulos" id="maya_core.school_subject" sequence="3" parent="maya_core.school"
               action="maya_core.action_subject"/>
+    <menuitem name="Cargos" id="maya_core.school_rol" sequence="4" parent="maya_core.school"
+              action="maya_core.action_rol"/>  
  
   </data>
 </odoo>
