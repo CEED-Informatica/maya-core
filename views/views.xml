@@ -15,7 +15,7 @@
     </record>
 
     <record model="ir.ui.view" id="maya_core.subject_tree">
-      <field name="name">Lista de Módulos</field>
+      <field name="name">Lista de módulos</field>
       <field name="model">maya_core.subject</field>
       <field name="arch" type="xml">
         <tree limit = "25">
@@ -39,6 +39,63 @@
         </tree>
       </field>
     </record>
+
+    <record model="ir.ui.view" id="maya_core.employee_tree">
+      <field name="name">Lista de empleados</field>
+      <field name="model">maya_core.employee</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="surname" />
+          <field name="name"/>
+          <field name="phone_extension"/>
+          <field name="work_email"/>
+          <field name="employee_type"/>
+          <field name="departament_ids" widget="many2many_tags" />
+          <field name="roles_ids" widget="many2many_tags" />
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="maya_core.employee_form">
+      <field name="name">Gestión de empleados</field>
+      <field name="model">maya_core.employee</field>
+      <field name="arch" type="xml">
+        <form>
+          <group col="2">
+            <group>
+              <field name="user_id" />
+              <field name="surname" />
+              <field name="name"/>
+            </group>
+            <group>
+              <field name="phone_extension" />
+              <field name="work_email"/>
+              <field name="employee_type"/>
+              <field name="active"/>
+            </group>  
+          </group>
+          <notebook>
+            <page string = 'Departamentos'>
+              <group>
+                <field name="departament_ids"/>
+              </group>
+            </page>
+            <page string = 'Cargos'>
+              <group>
+                <field name="roles_ids"/>
+              </group>
+            </page>
+            <page string = 'Sustituciones'>
+              <group>
+                <field name="sick_leave"/>
+                <field name="replaced_by_ids"/>
+              </group>
+            </page>
+          </notebook>
+        </form>
+      </field>
+    </record>
+
 
     <!-- actions opening views on models -->
     <record model="ir.actions.act_window" id="maya_core.action_departament">
@@ -65,13 +122,21 @@
       <field name="view_mode">tree,form</field>
     </record>
 
+    <record model="ir.actions.act_window" id="maya_core.action_employee">
+      <field name="name">Empleados</field>
+      <field name="res_model">maya_core.employee</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
     <!-- Top menu item -->
     <menuitem name="Maya | Core" id="maya_core.menu_root"/>
 
     <!-- menu categories -->
     <menuitem name="Centro" id="maya_core.school" parent="maya_core.menu_root"/>
+    <menuitem name="Curso" id="maya_core.course" parent="maya_core.menu_root"/>
     
     <!-- actions -->
+    <!-- menu centro -->
     <menuitem name="Departamentos" id="maya_core.school_departament" parent="maya_core.school"
               action="maya_core.action_departament" sequence="1"/>
     <menuitem name="Ciclos" id="maya_core.school_course" sequence="2" parent="maya_core.school"
@@ -80,6 +145,10 @@
               action="maya_core.action_subject"/>
     <menuitem name="Cargos" id="maya_core.school_rol" sequence="4" parent="maya_core.school"
               action="maya_core.action_rol"/>  
+
+    <!-- menu Curso -->
+    <menuitem name="Empleados" id="maya_core.course_employee" parent="maya_core.course"
+              action="maya_core.action_employee" sequence="1"/>
  
   </data>
 </odoo>
