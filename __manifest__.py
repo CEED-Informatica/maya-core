@@ -39,6 +39,7 @@
         'views/views.xml',
         'views/templates.xml',
          # datos de modelos
+        'data/school.xml',
         'data/courses.xml',
         'data/subjects/tic.xml',
         'data/subjects/hit.xml',
