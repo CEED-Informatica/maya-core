@@ -14,8 +14,12 @@
       </field>
     </record>
 
-
     <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="maya_core.action_departament">
+      <field name="name">Departamentos</field>
+      <field name="res_model">maya_core.departament</field>
+      <field name="view_mode">tree,form</field>
+    </record>
 
     <record model="ir.actions.act_window" id="maya_core.action_course">
       <field name="name">Ciclos</field>
@@ -36,9 +40,11 @@
     <menuitem name="Centro" id="maya_core.school" parent="maya_core.menu_root"/>
     
     <!-- actions -->
-    <menuitem name="Ciclos" id="maya_core.school_course" parent="maya_core.school"
+    <menuitem name="Departamentos" id="maya_core.school_departament" parent="maya_core.school"
+              action="maya_core.action_departament" sequence="1"/>
+    <menuitem name="Ciclos" id="maya_core.school_course" sequence="3" parent="maya_core.school"
               action="maya_core.action_course"/>
-    <menuitem name="Módulos" id="maya_core.school_subject" parent="maya_core.school"
+    <menuitem name="Módulos" id="maya_core.school_subject" sequence="4" parent="maya_core.school"
               action="maya_core.action_subject"/>
  
   </data>
