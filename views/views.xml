@@ -18,7 +18,7 @@
       <field name="name">Lista de Módulos</field>
       <field name="model">maya_core.subject</field>
       <field name="arch" type="xml">
-        <tree>
+        <tree limit = "25">
           <field name="name"/>
           <field name="abbr"/>
           <field name="code"/>
