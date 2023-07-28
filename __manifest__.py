@@ -40,6 +40,7 @@
         'views/templates.xml',
          # datos de modelos
         'data/school.xml',
+        'data/departaments.xml',
         'data/courses.xml',
         'data/subjects/tic.xml',
         'data/subjects/hit.xml',

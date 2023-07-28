@@ -1,0 +1,32 @@
+<odoo>
+  <data>
+    <!-- Departamentos -->
+    <record model="maya_core.departament" id="maya_core.departament_ADM">
+      <field name="name">Administración y Finanzas</field>
+    </record>
+
+    <record model="maya_core.departament" id="maya_core.departament_INF">
+      <field name="name">Informática</field>
+    </record>
+
+    <record model="maya_core.departament" id="maya_core.departament_TUR">
+      <field name="name">Turismo</field>
+    </record>
+
+    <record model="maya_core.departament" id="maya_core.departament_COM">
+      <field name="name">Comercio</field>
+    </record>
+
+    <record model="maya_core.departament" id="maya_core.departament_FCT">
+      <field name="name">Formación en Centros de Trabajo</field>
+    </record>
+
+    <record model="maya_core.departament" id="maya_core.departament_FOL">
+      <field name="name">Formación y Orientación Laboral</field>
+    </record>
+
+    <record model="maya_core.departament" id="maya_core.departament_SCRT">
+      <field name="name">Secretaría</field>
+    </record>
+  </data>
+</odoo>
