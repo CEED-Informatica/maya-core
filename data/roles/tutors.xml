@@ -1,0 +1,219 @@
+<odoo>
+  <data>
+    <!-- Administración -->
+    <record model="maya_core.rol" id="maya_core.rol_TUT1AFI">
+      <field name="rol">TUT1</field>
+      <field name="description">Tutor de primero de AFI</field>
+      <field name="course_id" ref="maya_core.course_AFI" />
+      <field name="departament_id" ref="maya_core.departament_ADM" />
+    </record>
+
+    <record model="maya_core.rol" id="maya_core.rol_TUT2AFI">
+      <field name="rol">TUT2</field>
+      <field name="description">Tutor de segundo de AFI</field>
+      <field name="course_id" ref="maya_core.course_AFI" />
+      <field name="departament_id" ref="maya_core.departament_ADM" />
+    </record>
+
+    <record model="maya_core.rol" id="maya_core.rol_TUT2ADI">
+      <field name="rol">TUT2</field>
+      <field name="description">Tutor de segundo de ADI</field>
+      <field name="course_id" ref="maya_core.course_ADI" />
+      <field name="departament_id" ref="maya_core.departament_ADM" />
+    </record>
+
+    <record model="maya_core.rol" id="maya_core.rol_TUTFCTADI">
+      <field name="rol">TUTFCT</field>
+      <field name="description">Tutor de FCT ADI</field>
+      <field name="course_id" ref="maya_core.course_ADI" />
+      <field name="departament_id" ref="maya_core.departament_ADM" />
+    </record>
+
+    <record model="maya_core.rol" id="maya_core.rol_TUTFCTAFI">
+      <field name="rol">TUTFCT</field>
+      <field name="description">Tutor de FCT AFI</field>
+      <field name="course_id" ref="maya_core.course_AFI" />
+      <field name="departament_id" ref="maya_core.departament_ADM" />
+    </record>
+
+    <!-- Informática -->
+
+    <record model="maya_core.rol" id="maya_core.rol_TUT1DAM">
+      <field name="rol">TUT1</field>
+      <field name="description">Tutor de primero de DAM</field>
+      <field name="course_id" ref="maya_core.course_DAM" />
+      <field name="departament_id" ref="maya_core.departament_INF" />
+    </record>
+
+    <record model="maya_core.rol" id="maya_core.rol_TUT1DAW">
+      <field name="rol">TUT1</field>
+      <field name="description">Tutor de primero de DAW</field>
+      <field name="course_id" ref="maya_core.course_DAW" />
+      <field name="departament_id" ref="maya_core.departament_INF" />
+    </record>
+
+    <record model="maya_core.rol" id="maya_core.rol_TUT1ASIR">
+      <field name="rol">TUT1</field>
+      <field name="description">Tutor de primero de ASIR</field>
+      <field name="course_id" ref="maya_core.course_ASIR" />
+      <field name="departament_id" ref="maya_core.departament_INF" />
+    </record>
+
+    <record model="maya_core.rol" id="maya_core.rol_TUT2DAM">
+      <field name="rol">TUT2</field>
+      <field name="description">Tutor de segundo de DAM</field>
+      <field name="course_id" ref="maya_core.course_DAM" />
+      <field name="departament_id" ref="maya_core.departament_INF" />
+    </record>
+
+    <record model="maya_core.rol" id="maya_core.rol_TUT2DAW">
+      <field name="rol">TUT2</field>
+      <field name="description">Tutor de segundo de DAW</field>
+      <field name="course_id" ref="maya_core.course_DAW" />
+      <field name="departament_id" ref="maya_core.departament_INF" />
+    </record>
+
+    <record model="maya_core.rol" id="maya_core.rol_TUTFCTDAM">
+      <field name="rol">TUTFCT</field>
+      <field name="description">Tutor de FCT DAM</field>
+      <field name="course_id" ref="maya_core.course_DAM" />
+      <field name="departament_id" ref="maya_core.departament_INF" />
+    </record>
+
+    <record model="maya_core.rol" id="maya_core.rol_TUTFCTDAW">
+      <field name="rol">TUTFCT</field>
+      <field name="description">Tutor de FCT DAW</field>
+      <field name="course_id" ref="maya_core.course_DAW" />
+      <field name="departament_id" ref="maya_core.departament_INF" />
+    </record>
+
+    <record model="maya_core.rol" id="maya_core.rol_TUTFCTASIR">
+      <field name="rol">TUTFCT</field>
+      <field name="description">Tutor de FCT ASIR</field>
+      <field name="course_id" ref="maya_core.course_ASIR" />
+      <field name="departament_id" ref="maya_core.departament_INF" />
+    </record>
+
+    <!-- Comercio -->
+    <record model="maya_core.rol" id="maya_core.rol_TUT1CI">
+      <field name="rol">TUT1</field>
+      <field name="description">Tutor de primero de CI</field>
+      <field name="course_id" ref="maya_core.course_CI" />
+      <field name="departament_id" ref="maya_core.departament_COM" />
+    </record>
+
+    <record model="maya_core.rol" id="maya_core.rol_TUT1GEVEC">
+      <field name="rol">TUT1</field>
+      <field name="description">Tutor de primero de GEVEC</field>
+      <field name="course_id" ref="maya_core.course_GEVEC" />
+      <field name="departament_id" ref="maya_core.departament_COM" />
+    </record>
+
+    <record model="maya_core.rol" id="maya_core.rol_TUT2TIL">
+      <field name="rol">TUT2</field>
+      <field name="description">Tutor de segundo de TIL</field>
+      <field name="course_id" ref="maya_core.course_TIL" />
+      <field name="departament_id" ref="maya_core.departament_COM" />
+    </record>
+
+    <record model="maya_core.rol" id="maya_core.rol_TUT2CI">
+      <field name="rol">TUT2</field>
+      <field name="description">Tutor de segundo de CI</field>
+      <field name="course_id" ref="maya_core.course_CI" />
+      <field name="departament_id" ref="maya_core.departament_COM" />
+    </record>
+
+    <record model="maya_core.rol" id="maya_core.rol_TUT2GEVEC">
+      <field name="rol">TUT2</field>
+      <field name="description">Tutor de segundo de GEVEC</field>
+      <field name="course_id" ref="maya_core.course_GEVEC" />
+      <field name="departament_id" ref="maya_core.departament_COM" />
+    </record>
+
+    <record model="maya_core.rol" id="maya_core.rol_TUTFCTTIL">
+      <field name="rol">TUTFCT</field>
+      <field name="description">Tutor de FCT TIL</field>
+      <field name="course_id" ref="maya_core.course_TIL" />
+      <field name="departament_id" ref="maya_core.departament_COM" />
+    </record>
+
+    <record model="maya_core.rol" id="maya_core.rol_TUTFCTCI">
+      <field name="rol">TUTFCT</field>
+      <field name="description">Tutor de FCT CI</field>
+      <field name="course_id" ref="maya_core.course_CI" />
+      <field name="departament_id" ref="maya_core.departament_COM" />
+    </record>
+
+    <record model="maya_core.rol" id="maya_core.rol_TUTFCTGEVEC">
+      <field name="rol">TUTFCT</field>
+      <field name="description">Tutor de FCT GVEC</field>
+      <field name="course_id" ref="maya_core.course_GEVEC" />
+      <field name="departament_id" ref="maya_core.departament_COM" />
+    </record>
+
+    <!-- Turismo -->
+    <record model="maya_core.rol" id="maya_core.rol_TUT1GAT">
+      <field name="rol">TUT1</field>
+      <field name="description">Tutor de primero de GAT</field>
+      <field name="course_id" ref="maya_core.course_GAT" />
+      <field name="departament_id" ref="maya_core.departament_TUR" />
+    </record>
+
+    <record model="maya_core.rol" id="maya_core.rol_TUT1GIAT">
+      <field name="rol">TUT1</field>
+      <field name="description">Tutor de primero de GIAT</field>
+      <field name="course_id" ref="maya_core.course_GIAT" />
+      <field name="departament_id" ref="maya_core.departament_TUR" />
+    </record>
+
+    <record model="maya_core.rol" id="maya_core.rol_TUT1AVGE">
+      <field name="rol">TUT1</field>
+      <field name="description">Tutor de primero de AVGE</field>
+      <field name="course_id" ref="maya_core.course_AVGE" />
+      <field name="departament_id" ref="maya_core.departament_TUR" />
+    </record>
+
+    <record model="maya_core.rol" id="maya_core.rol_TUT2GAT">
+      <field name="rol">TUT2</field>
+      <field name="description">Tutor de segundo de GAT</field>
+      <field name="course_id" ref="maya_core.course_GAT" />
+      <field name="departament_id" ref="maya_core.departament_TUR" />
+    </record>
+
+    <record model="maya_core.rol" id="maya_core.rol_TUT2GIAT">
+      <field name="rol">TUT2</field>
+      <field name="description">Tutor de segundo de GIAT</field>
+      <field name="course_id" ref="maya_core.course_GIAT" />
+      <field name="departament_id" ref="maya_core.departament_TUR" />
+    </record>
+
+    <record model="maya_core.rol" id="maya_core.rol_TUT2AVGE">
+      <field name="rol">TUT2</field>
+      <field name="description">Tutor de segundo de AVGE</field>
+      <field name="course_id" ref="maya_core.course_AVGE" />
+      <field name="departament_id" ref="maya_core.departament_TUR" />
+    </record>
+
+    <record model="maya_core.rol" id="maya_core.rol_TUTFCTGIAT">
+      <field name="rol">TUTFCT</field>
+      <field name="description">Tutor de FCT GIAT</field>
+      <field name="course_id" ref="maya_core.course_GIAT" />
+      <field name="departament_id" ref="maya_core.departament_TUR" />
+    </record>
+
+    <record model="maya_core.rol" id="maya_core.rol_TUTFCTGAT">
+      <field name="rol">TUTFCT</field>
+      <field name="description">Tutor de FCT GAT</field>
+      <field name="course_id" ref="maya_core.course_GAT" />
+      <field name="departament_id" ref="maya_core.departament_TUR" />
+    </record>
+
+    <record model="maya_core.rol" id="maya_core.rol_TUTFCTAVGE">
+      <field name="rol">TUTFCT</field>
+      <field name="description">Tutor de FCT AVGE</field>
+      <field name="course_id" ref="maya_core.course_AVGE" />
+      <field name="departament_id" ref="maya_core.departament_TUR" />
+    </record>
+
+  </data>
+</odoo>

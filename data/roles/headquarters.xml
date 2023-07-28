@@ -1,0 +1,44 @@
+<odoo>
+  <data>
+    <record model="maya_core.rol" id="maya_core.rol_JEFCF">
+      <field name="rol">JFCF</field>
+      <field name="description">Jefatura de Estudios de Ciclos Formativos</field>
+    </record>
+
+    <record model="maya_core.rol" id="maya_core.rol_COORDCF">
+      <field name="rol">CRDCF</field>
+      <field name="description">Coordinación Ciclos Formativos</field>
+    </record>
+
+    <record model="maya_core.rol" id="maya_core.rol_JEFDAFI">
+      <field name="rol">JFDP</field>
+      <field name="description">Jefatura de departamento de Administración</field>
+      <field name="departament_id" ref="maya_core.departament_ADM" />
+    </record>
+
+    <record model="maya_core.rol" id="maya_core.rol_JEFDTUR">
+      <field name="rol">JFDP</field>
+      <field name="description">Jefatura de departamento de Turismo</field>
+      <field name="departament_id" ref="maya_core.departament_TUR" />
+    </record>
+
+    <record model="maya_core.rol" id="maya_core.rol_JEFDCOM">
+      <field name="rol">JFDP</field>
+      <field name="description">Jefatura de departamento de Comercio</field>
+      <field name="departament_id" ref="maya_core.departament_COM" />
+    </record>
+
+    <record model="maya_core.rol" id="maya_core.rol_JEFDFCT">
+      <field name="rol">JFDP</field>
+      <field name="description">Jefatura de departamento de FCT</field>
+      <field name="departament_id" ref="maya_core.departament_FCT" />
+    </record>
+
+    <record model="maya_core.rol" id="maya_core.rol_JEFDINF">
+      <field name="rol">JFDP</field>
+      <field name="description">Jefatura de departamento de Informática</field>
+      <field name="departament_id" ref="maya_core.departament_INF" />
+    </record>
+    
+  </data>
+</odoo>
