@@ -1,0 +1,40 @@
+<odoo>
+  <data>
+    <record id="maya_core.category_group" model="ir.module.category">
+      <field name="name">Maya</field>
+    </record>
+
+    <record id="maya_core.group_TEACH" model="res.groups">
+      <field name="name">Profesorado</field>
+      <field name="category_id" ref="maya_core.category_group"/>
+    </record>
+
+    <record id="maya_core.group_ADMIN" model="res.groups">
+      <field name="name">Administración (secretaria)</field>
+      <field name="category_id" ref="maya_core.category_group"/>
+    </record>
+
+    <record id="maya_core.group_VALID" model="res.groups">
+      <field name="name">Convalidadores</field>
+      <field name="category_id" ref="maya_core.category_group"/>
+      <field name="implied_ids" eval="[(4,ref('maya_core.group_TEACH'))]"/>
+    </record>
+
+    <record id="maya_core.group_MNGT" model="res.groups">
+      <field name="name">Equipo Directivo</field>
+      <field name="category_id" ref="maya_core.category_group"/>
+      <field name="implied_ids" eval="[(4,ref('maya_core.group_ADMIN'))]"/>
+    </record>
+
+    <record id="maya_core.group_MNGT_FP" model="res.groups">
+      <field name="name">Coordinación ciclos</field>
+      <field name="category_id" ref="maya_core.category_group"/>
+    </record>
+
+    <record id="maya_core.group_ROOT" model="res.groups">
+      <field name="name">Administración Maya</field>
+      <field name="category_id" ref="maya_core.category_group"/>
+    </record>
+
+  </data>
+</odoo>

@@ -1,0 +1,8 @@
+name,surname,email,lang,dep,type
+Oscar,Valero,ov@g.com,en_US,Informática,profesor
+Ana,García,ag@g.com,en_US,Turismo,profesor
+Xavi,Fernández,xf@g.com,en_US,Comercio,profesor
+Sara,Álvarez,sa@g.com,en_US,Administración y Finanzas,profesor
+Coordinador,Ciclos,cc@g.com,en_US,Informática,profesor
+Maria del Carmen,Bofill,cb@g.com,es_ES,Formación y Orientación Laboral,profesor
+Eva,Albert,ea@g.com,en_US,Secretaría,pas
