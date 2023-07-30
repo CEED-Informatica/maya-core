@@ -6,3 +6,4 @@ from . import rol
 from . import departament
 from . import res
 from . import employee
+from . import student
