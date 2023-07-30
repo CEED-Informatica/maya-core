@@ -1,0 +1,21 @@
+# -*- coding: utf-8 -*-
+
+from odoo import models, fields
+
+
+class SubjectStudentRel(models.Model): 
+  """
+  Se crea como table de relación entre Subject y Student para dar soporte a un campo intermedio
+  """
+  _name = 'maya_core.subject_student_rel' 
+  _description = 'Relación entre student y subject' 
+
+  subject_id = fields.Many2one('maya_core.subject', required = True)
+  student_id = fields.Many2one('maya_core.student', required = True) 
+
+  # ciclo en el que está matriculado
+  course_id = fields.Many2one('maya_core.course', required = True)
+
+  # número que determina los flags asociados al estado del record
+  status_flags = fields.Integer(default = 0) 
+

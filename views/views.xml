@@ -167,8 +167,8 @@
     <!-- menu Curso -->
     <menuitem name="Empleados" id="maya_core.course_employee" parent="maya_core.course"
               action="maya_core.action_employee" sequence="1"/>
-    <menuitem name="Estudiantes" id="maya_core.school_student" parent="maya_core.course"
-              action="maya_core.action_student"/>
+    <menuitem name="Estudiantes" id="maya_core.course_student" parent="maya_core.course"
+              action="maya_core.action_student" sequence="2"/>
  
   </data>
 </odoo>

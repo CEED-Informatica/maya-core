@@ -7,3 +7,4 @@ from . import departament
 from . import res
 from . import employee
 from . import student
+from . import subject_student_rel

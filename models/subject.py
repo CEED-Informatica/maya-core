@@ -15,3 +15,9 @@ class Subject(models.Model):
 
     courses_ids = fields.Many2many('maya_core.course', string = 'Ciclos', help = 'Ciclos en los que se imparte')
  
+    students_ids = fields.Many2many(
+      'maya_core.student', 
+      string = 'Estudiante',
+      # ojo! la definición de la tabla lleva incluído el npmbre del módulo separado por _
+      relation = 'maya_core_subject_student_rel', 
+      column1 = 'subject_id', column2 = 'student_id')

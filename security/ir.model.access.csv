@@ -5,3 +5,4 @@ access_maya_core_departament,access_maya_core_departament,maya_core.model_maya_c
 access_maya_core_rol,access_maya_core_rol,maya_core.model_maya_core_rol,base.group_user,1,1,1,1
 access_maya_core_employee,access_maya_core_employee,maya_core.model_maya_core_employee,base.group_user,1,1,1,1
 access_maya_core_student,access_maya_core_student,maya_core.model_maya_core_student,base.group_user,1,1,1,1
+access_atenea_subject_student_rel,access_atenea_subject_student_rel,atenea.model_atenea_subject_student_rel,base.group_user,1,1,1,1
