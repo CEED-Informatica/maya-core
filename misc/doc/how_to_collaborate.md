@@ -49,7 +49,13 @@
 
 
 TODO:  aula moodle, contraseñas usuarios, key moodle, modificacion odoo.conf, ajuste id aulas y tareas, configuracion correo, creación de usuarios
+### Extensiones
 
+Aunque no es necesario si no se desea colaborar en ellos, si que es recomendable instalar el resto de módulos del ecosistema Maya, módulos que actúan a modo de extensiones ampliando las funcionalidades.
+ 
+| Extensión | Descripción | Acceso |
+| :--: | :-------:  |  :---------: | 
+| Maya \| convalidaciones | Gestión de cnvalidaciones y aprobados con anterioridad | [GitHub](https://github.com/CEED-Informatica/maya_valid) |
 
 ## Cómo trabajar
 
