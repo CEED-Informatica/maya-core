@@ -122,6 +122,18 @@
       </field>
     </record>
 
+    <record model="ir.ui.view" id="maya_core.task_tree">
+      <field name="name">Lista de tareas conectadas</field>
+      <field name="model">maya_core.task_moodle</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="description"/>
+          <field name="key"/>
+          <field name="moodle_id"/>
+        </tree>
+      </field>
+    </record>
+
     <!-- actions opening views on models -->
     <record model="ir.actions.act_window" id="maya_core.action_departament">
       <field name="name">Departamentos</field>
@@ -165,6 +177,12 @@
       <field name="view_mode">tree,form</field>
     </record>
 
+    <record model="ir.actions.act_window" id="maya_core.action_task">
+      <field name="name">Tareas asociadas</field>
+      <field name="res_model">maya_core.task_moodle</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
     <!-- Top menu item -->
     <menuitem name="Maya | Core" id="maya_core.menu_root"/>
 
@@ -190,9 +208,11 @@
     <menuitem name="Estudiantes" id="maya_core.course_student" parent="maya_core.course"
               action="maya_core.action_student" sequence="2"/>
 
-    <!-- menu Curso -->
+    <!-- menu Moodle -->
     <menuitem name="Aulas virtuales" id="maya_core.moodle_classroom" parent="maya_core.moodle"
               action="maya_core.action_classroom"/>
+    <menuitem name="Tareas asociadas" id="maya_core.moodle_task" parent="maya_core.moodle"
+              action="maya_core.action_task"/>
  
   </data>
 </odoo>
