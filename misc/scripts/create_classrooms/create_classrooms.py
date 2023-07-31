@@ -118,10 +118,11 @@ except Exception as e:
 line_count_OK = 0
 line_count_ERROR = 0
 
+# aulas virtuales que ya existen en Maya, para poder actualizar o crear de cero
 try:
   current_classrooms = models.execute_kw(db, uid, password, 'maya_core.classroom', 'search_read', [[]], { 'fields': ['id', 'code']})
   print(f'\033[0;32m[INFO]\033[0m Classroom existentes:')
-  print(f'   {current_classrooms}')
+  print_list(current_classrooms)
 except (xmlrpc.client.Fault) as e:
   print('\033[0;31m[ERROR]\033[0m ' + e.faultString)
   print(f'\033[0;32m[INFO]\033[0m Saliendo...')
