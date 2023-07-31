@@ -110,6 +110,16 @@ try:
 
   print(f'\033[0;32m[INFO]\033[0m Idiomas:')
   print_list(languages_output)
+
+  # aulas virtuales que ya existen en Maya, para poder actualizar o crear de cero
+  current_classrooms = models.execute_kw(db, uid, password, 'maya_core.classroom', 'search_read', [[]], { 'fields': ['id', 'code']})
+  print(f'\033[0;32m[INFO]\033[0m Classroom existentes:')
+  print_list(current_classrooms)
+
+except (xmlrpc.client.Fault) as e:
+  print('\033[0;31m[ERROR]\033[0m ' + e.faultString)
+  print(f'\033[0;32m[INFO]\033[0m Saliendo...')
+  exit()
 except Exception as e:
   print('\033[0;31m[ERROR]\033[0m ' + str(e))
   print(f'\033[0;32m[INFO]\033[0m Saliendo...')
@@ -117,16 +127,6 @@ except Exception as e:
 
 line_count_OK = 0
 line_count_ERROR = 0
-
-# aulas virtuales que ya existen en Maya, para poder actualizar o crear de cero
-try:
-  current_classrooms = models.execute_kw(db, uid, password, 'maya_core.classroom', 'search_read', [[]], { 'fields': ['id', 'code']})
-  print(f'\033[0;32m[INFO]\033[0m Classroom existentes:')
-  print_list(current_classrooms)
-except (xmlrpc.client.Fault) as e:
-  print('\033[0;31m[ERROR]\033[0m ' + e.faultString)
-  print(f'\033[0;32m[INFO]\033[0m Saliendo...')
-  exit()
 
 for classroom in classrooms:
   print("\033[0;32m[INFO]\033[0m Procesando ", classroom['code'])
