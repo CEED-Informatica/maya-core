@@ -5,7 +5,7 @@ from odoo import models, fields
 
 class SubjectStudentRel(models.Model): 
   """
-  Se crea como table de relación entre Subject y Student para dar soporte a un campo intermedio
+  Se crea como tabla de relación (pivote) entre Subject y Student para dar soporte a un campo intermedio
   """
   _name = 'maya_core.subject_student_rel' 
   _description = 'Relación entre student y subject' 

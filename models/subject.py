@@ -14,6 +14,9 @@ class Subject(models.Model):
     year = fields.Selection([('1', '1º'), ('2', '2º')], required = True, default = '1', string = 'Curso')
 
     courses_ids = fields.Many2many('maya_core.course', string = 'Ciclos', help = 'Ciclos en los que se imparte')
+
+    # Aulas virtuales asigndas a este módulo
+    classrooms_ids = fields.One2many('maya_core.subject_classroom_rel', 'subject_id', string = 'Aulas virtuales')
  
     students_ids = fields.Many2many(
       'maya_core.student', 

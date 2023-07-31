@@ -109,6 +109,19 @@
       </field>
     </record>
 
+    <record model="ir.ui.view" id="maya_core.classroom_tree">
+      <field name="name">Lista de Aulas virtuales</field>
+      <field name="model">maya_core.classroom</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="code"/>
+          <field name="description"/>
+          <field name="subjects_ids" string="Módulos (ciclo)" widget="many2many_tags"/>
+          <field name="lang_id"/>
+        </tree>
+      </field>
+    </record>
+
     <!-- actions opening views on models -->
     <record model="ir.actions.act_window" id="maya_core.action_departament">
       <field name="name">Departamentos</field>
@@ -146,12 +159,19 @@
       <field name="view_mode">tree</field> <!-- por ahora no permito ver el fomulario: no es necesario ver más o info o crear o editar -->
     </record>
 
+    <record model="ir.actions.act_window" id="maya_core.action_classroom">
+      <field name="name">Aulas virtuales</field>
+      <field name="res_model">maya_core.classroom</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
     <!-- Top menu item -->
     <menuitem name="Maya | Core" id="maya_core.menu_root"/>
 
     <!-- menu categories -->
     <menuitem name="Centro" id="maya_core.school" parent="maya_core.menu_root"/>
     <menuitem name="Curso" id="maya_core.course" parent="maya_core.menu_root"/>
+    <menuitem name="Moodle" id="maya_core.moodle" parent="maya_core.menu_root"/>
     
     <!-- actions -->
     <!-- menu centro -->
@@ -169,6 +189,10 @@
               action="maya_core.action_employee" sequence="1"/>
     <menuitem name="Estudiantes" id="maya_core.course_student" parent="maya_core.course"
               action="maya_core.action_student" sequence="2"/>
+
+    <!-- menu Curso -->
+    <menuitem name="Aulas virtuales" id="maya_core.moodle_classroom" parent="maya_core.moodle"
+              action="maya_core.action_classroom"/>
  
   </data>
 </odoo>
