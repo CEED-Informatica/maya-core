@@ -113,7 +113,7 @@
       <field name="name">Lista de Aulas virtuales</field>
       <field name="model">maya_core.classroom</field>
       <field name="arch" type="xml">
-        <tree>
+        <tree limit="25">
           <field name="code"/>
           <field name="description"/>
           <field name="subjects_ids" string="Módulos (ciclo)" widget="many2many_tags"/>
