@@ -55,7 +55,7 @@ Aunque no es necesario si no se desea colaborar en ellos, si que es recomendable
  
 | Extensión | Descripción | Acceso |
 | :--: | :-------:  |  :---------: | 
-| Maya \| convalidaciones | Gestión de cnvalidaciones y aprobados con anterioridad | [GitHub](https://github.com/CEED-Informatica/maya_valid) |
+| Maya \| convalidaciones | Gestión de convalidaciones y aprobados con anterioridad | [GitHub](https://github.com/CEED-Informatica/maya_valid) |
 
 ## Cómo trabajar
 
