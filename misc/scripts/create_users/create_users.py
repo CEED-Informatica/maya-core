@@ -6,12 +6,18 @@ import csv
 import sys, argparse
 
 def print_dictionary(dictionary):
+  """
+  Muestra por pantalla un diccionario de una manera más ordenada
+  """
   for key, value in dictionary.items():  
     print(' * {} ({})'.format(key, value))
 
 def print_list(list):
+  """
+  Muestra por pantalla una lista de una manera más ordenada
+  """
   for value in list:  
-       print(' * {}'.format(value))
+    print(' * {}'.format(value))
 
 print('\033[1mMaya | create-users. v1.1\033[0m')
 
