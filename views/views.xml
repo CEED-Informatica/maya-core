@@ -134,6 +134,202 @@
       </field>
     </record>
 
+    <record model="ir.ui.view" id="maya_core.school_year_form">
+      <field name="name">school_year.form.view</field>
+      <field name="model">maya_core.school_year</field>
+      <field name="arch" type="xml">
+        <form>
+          <header>
+            <!-- como es del tipo object, llama a la función school_year_to_current_action 
+              del modelo definido en el field model, en este caso maya_core.school_year  -->
+            <button name="school_year_to_current_action" icon="fa-bookmark" 
+              string="Convertir en curso actual" class="oe_highlight"
+              attrs="{'invisible': ['|', ('state','=', '2'), ('state','=', '1')] }"
+              type="object"
+              confirm="ATENCIÓN: Convertir un curso en actual implica la desactivación de todos los usuarios. ¿Deseas continuar?"/>
+            <button name="school_year_to_draft_action" icon="fa-pencil" 
+              string="Convertir en borrador" class="oe_highlight"
+              attrs="{'invisible': ['|', ('state','=', '0'), ('state','=', '1')] }"
+              type="object"/>
+            <field name="state" widget="statusbar" statusbar_visible="0,1,2"/>
+          </header>
+          <group col='2'>
+            <group>
+              <field name="name"/>
+            </group>
+            <group>
+              <field name="date_init"/>
+            </group>
+          </group>
+          <notebook>
+            <page string = 'General'>
+              <group>
+                <field name="date_init_lective"/>
+                <field name="date_welcome_day" force_save="1"/>
+              </group>
+            </page>
+            <page string = 'Primer curso'>
+              <group col="3">
+                <group>
+                  <separator string="Primera evaluación" style="padding-bottom:15px"/>
+                  <!-- empieza el mismo dia que en segundo -->
+                  <field name="date_1term2_ini"/>
+                  <field name="date_1term1_end" force_save="1"/>
+                  <field name="date_1term1_exam_ini" force_save="1"/>
+                  <field name="date_1term1_exam_end" force_save="1"/>
+                  <separator/>
+                  <field name="duration_1term1"/>
+                </group>
+                <group>
+                  <separator string="Segunda evaluación" style="padding-bottom:15px"/>
+                  <field name="date_2term1_ini" force_save="1"/>
+                  <field name="date_2term1_end" force_save="1"/>
+                  <field name="date_2term1_exam_ini" force_save="1"/>
+                  <field name="date_2term1_exam_end" force_save="1"/>
+                  <separator/>
+                  <field name="duration_2term1"/>
+                </group>
+                <group>
+                  <separator string="Ordinaria" style="padding-bottom:15px"/>
+                  <field name="date_ord1_exam_ini" force_save="1"/>
+                  <field name="date_ord1_exam_end" force_save="1"/>
+                  <separator string="Extraordinaria" style="padding-top:30px; padding-bottom:15px"/>
+                  <field name="date_extraord1_exam_ini" force_save="1"/>
+                  <field name="date_extraord1_exam_end" force_save="1"/>
+                </group>
+              </group>
+              <separator string="Anulaciones y renuncias" style="padding-top:30px"/> 
+              <group col="3">
+                <group>
+                  <field name="date_cancellation1"/>
+                </group>
+                <group>
+                  <field name="date_waiver_ord1"/>
+                </group>
+                <group>
+                  <field name="date_waiver_extraord1"/>
+                </group>
+              </group>
+            </page>
+            <page string = 'Segundo curso'>
+              <group col="3">
+                <group>
+                  <separator string="Primera evaluación" style="padding-bottom:15px"/>
+                  <!-- los campos readonly no se actualizan en la BBDD salvo que se incluya force_save = "1"-->
+                  <field name="date_1term2_ini"/>
+                  <field name="date_1term2_end" force_save="1"/>
+                  <field name="date_1term2_exam_ini" force_save="1"/>
+                  <field name="date_1term2_exam_end" force_save="1"/>
+                  <separator/>
+                  <field name="duration_1term2"/>
+                </group>
+                <group>
+                  <separator string="Segunda evaluación" style="padding-bottom:15px"/>
+                  <field name="date_2term2_ini" force_save="1"/>
+                  <field name="date_2term2_end" force_save="1"/>
+                  <field name="date_2term2_exam_ini" force_save="1"/>
+                  <field name="date_2term2_exam_end" force_save="1"/>
+                  <separator/>
+                  <field name="duration_2term2"/>
+                </group>
+                <group>
+                  <separator string="Ordinaria" style="padding-bottom:15px"/>
+                  <field name="date_ord2_exam_ini" force_save="1"/>
+                  <field name="date_ord2_exam_end" force_save="1"/>
+                  <separator string="Extraordinaria" style="padding-top:30px; padding-bottom:15px"/>
+                  <field name="date_extraord2_exam_ini" force_save="1"/>
+                  <field name="date_extraord2_exam_end" force_save="1"/>
+                </group>
+              </group>
+              <separator string="Anulaciones y renuncias" style="padding-top:30px"/> 
+              <group col="3">
+                <group>
+                  <field name="date_cancellation2"/>
+                </group>
+                <group>
+                  <field name="date_waiver_ord2"/>
+                </group>
+                <group>
+                  <field name="date_waiver_extraord2"/>
+                </group>
+              </group>
+            </page>
+             <page string = 'PFC'>
+              <group col="2">
+                <group>
+                  <separator string="Primer periodo (junio)" style="padding-bottom:15px"/>
+                  <field name="date_1term_pfc_talk"/>
+                  <field name="date_1term_pfc_proposal1"/>
+                  <field name="date_1term_pfc_list1"/>
+                  <field name="date_1term_pfc_proposal2" force_save="1"/>
+                  <field name="date_1term_pfc_list2"/>
+                  <separator/>
+                  <field name="date_1term_pfc_delivery"/>
+                  <field name="date_1term_pfc_exposition_ini"/>
+                  <field name="date_1term_pfc_exposition_end" force_save="1"/>
+                  <separator/>
+                  <field name="date_1term_pfc_cancellation"/>
+                  <field name="date_1term_pfc_waiver"/>  
+                </group>
+                <group>
+                  <separator string="Segundo periodo (febrero)" style="padding-bottom:15px"/>
+                  <field name="date_2term_pfc_talk"/>
+                  <field name="date_2term_pfc_proposal1"/>
+                  <field name="date_2term_pfc_list1"/>
+                  <field name="date_2term_pfc_proposal2" force_save="1"/>
+                  <field name="date_2term_pfc_list2"/>
+                  <separator/>
+                  <field name="date_2term_pfc_delivery"/>
+                  <field name="date_2term_pfc_exposition_ini"/>
+                  <field name="date_2term_pfc_exposition_end" force_save="1"/>
+                  <separator/>
+                  <field name="date_2term_pfc_cancellation"/>
+                  <field name="date_2term_pfc_waiver"/>  
+                </group>
+              </group>
+            </page>
+            <page string = 'Festivos'>
+              <field name="holidays_ids">
+                <tree>    
+                  <field name="description"/>
+                  <!-- hay que añadir el campo para poder trabajar con él en el código, pero queremos verlo -->
+                  <field name="key" attrs="{'column_invisible': [True]}"/>
+                  <field name="date"/>
+                  <field name="date_end" attrs="{'invisible': [('duration','=',1)]}"/>
+                  <field name="duration" attrs="{'invisible': [('duration','=',1)]}"/>
+                </tree>
+              </field>
+            </page>
+            <page string = 'Información'>
+              <group col="3">
+                <group>
+                  <field name="school_calendar_version"/>
+                  <field name="pfc_calendar_version"/>
+                </group>
+                <group></group>
+                <group></group>
+              </group>
+            </page>
+            <!-- <page string = "Tareas">
+              <field name = "cron_ids">
+                <tree>
+                  <field name = "name"/>
+                  <field name = "interval_number"/>
+                  <field name = "interval_type"/>
+                  <field name = "nextcall"/>
+                  <field name = "active"/> 
+                  <field name = "model_id"/>
+                  <field name = "code"/>
+                  <button string="Ejecutar manualmente" name="run_cron" 
+                    icon="fa-play" class="oe_highlight" type="object"/>
+                </tree>
+              </field>
+            </page> -->
+          </notebook>
+        </form>
+      </field>
+    </record> 
+
     <!-- actions opening views on models -->
     <record model="ir.actions.act_window" id="maya_core.action_departament">
       <field name="name">Departamentos</field>
@@ -171,6 +367,12 @@
       <field name="view_mode">tree</field> <!-- por ahora no permito ver el fomulario: no es necesario ver más o info o crear o editar -->
     </record>
 
+    <record model="ir.actions.act_window" id="maya_core.action_school_year">
+      <field name="name">Curso escolar</field>
+      <field name="res_model">maya_core.school_year</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
     <record model="ir.actions.act_window" id="maya_core.action_classroom">
       <field name="name">Aulas virtuales</field>
       <field name="res_model">maya_core.classroom</field>
@@ -203,10 +405,12 @@
               action="maya_core.action_rol"/>  
 
     <!-- menu Curso -->
+    <menuitem name="Curso" id="maya_core.school_year" parent="maya_core.course"
+              action="maya_core.action_school_year" sequence="1"/>
     <menuitem name="Empleados" id="maya_core.course_employee" parent="maya_core.course"
-              action="maya_core.action_employee" sequence="1"/>
+              action="maya_core.action_employee" sequence="2"/>
     <menuitem name="Estudiantes" id="maya_core.course_student" parent="maya_core.course"
-              action="maya_core.action_student" sequence="2"/>
+              action="maya_core.action_student" sequence="3"/>
 
     <!-- menu Moodle -->
     <menuitem name="Aulas virtuales" id="maya_core.moodle_classroom" parent="maya_core.moodle"
