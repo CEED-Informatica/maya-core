@@ -385,6 +385,42 @@
       <field name="view_mode">tree,form</field>
     </record>
 
+    <record model="ir.actions.act_window" id="maya_core.action_cron_FPC">
+      <field name="name">Tareas programadas para todos los estudiantes</field>
+      <field name="res_model">maya_core.ir.cron</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="maya_core.action_cron_FPD">
+      <field name="name">Tareas programadas para todos los profesores</field>
+      <field name="res_model">maya_core.ir.cron</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="maya_core.action_cron_FPE">
+      <field name="name">Tareas programadas para todos los empleados de FP</field>
+      <field name="res_model">maya_core.ir.cron</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="maya_core.action_cron_DEP">
+      <field name="name">Tareas programadas para un departamento</field>
+      <field name="res_model">maya_core.ir.cron</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="maya_core.action_cron_COUR">
+      <field name="name">Tareas programadas para un ciclo</field>
+      <field name="res_model">maya_core.ir.cron</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="maya_core.action_cron_SUBJ">
+      <field name="name">Un módulo</field>
+      <field name="res_model">maya_core.ir.cron</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
     <!-- Top menu item -->
     <menuitem name="Maya | Core" id="maya_core.menu_root"/>
 
@@ -392,9 +428,10 @@
     <menuitem name="Centro" id="maya_core.school" parent="maya_core.menu_root"/>
     <menuitem name="Curso" id="maya_core.course" parent="maya_core.menu_root"/>
     <menuitem name="Moodle" id="maya_core.moodle" parent="maya_core.menu_root"/>
+    <menuitem name="Tareas programadas" id="maya_core.cron" parent="maya_core.menu_root"/>
     
-    <!-- actions -->
-    <!-- menu centro -->
+  
+    <!-- menú centro -->
     <menuitem name="Departamentos" id="maya_core.school_departament" parent="maya_core.school"
               action="maya_core.action_departament" sequence="1"/>
     <menuitem name="Ciclos" id="maya_core.school_course" sequence="2" parent="maya_core.school"
@@ -404,7 +441,7 @@
     <menuitem name="Cargos" id="maya_core.school_rol" sequence="4" parent="maya_core.school"
               action="maya_core.action_rol"/>  
 
-    <!-- menu Curso -->
+    <!-- menú Curso -->
     <menuitem name="Curso" id="maya_core.school_year" parent="maya_core.course"
               action="maya_core.action_school_year" sequence="1"/>
     <menuitem name="Empleados" id="maya_core.course_employee" parent="maya_core.course"
@@ -412,11 +449,30 @@
     <menuitem name="Estudiantes" id="maya_core.course_student" parent="maya_core.course"
               action="maya_core.action_student" sequence="3"/>
 
-    <!-- menu Moodle -->
+    <!-- menú Moodle -->
     <menuitem name="Aulas virtuales" id="maya_core.moodle_classroom" parent="maya_core.moodle"
               action="maya_core.action_classroom"/>
     <menuitem name="Tareas asociadas" id="maya_core.moodle_task" parent="maya_core.moodle"
               action="maya_core.action_task"/>
  
+    <!-- menú Moodle -->
+    <menuitem name="Aulas virtuales" id="maya_core.moodle_classroom" parent="maya_core.moodle"
+              action="maya_core.action_classroom"/>
+    <menuitem name="Tareas asociadas" id="maya_core.moodle_task" parent="maya_core.moodle"
+              action="maya_core.action_task"/>
+
+    <!-- menu Tareas programadas -->
+    <menuitem name="General (estudiantes)" id="maya_core.cron_FPC" parent="maya_core.cron"
+              action="maya_core.action_cron_FPC"/>
+    <menuitem name="General (profesores)" id="maya_core.cron_FPD" parent="maya_core.cron"
+              action="maya_core.action_cron_FPD"/>
+    <menuitem name="General (empleados FP)" id="maya_core.cron_FPE" parent="maya_core.cron"
+              action="maya_core.action_cron_FPE"/>
+    <menuitem name="Departamento" id="maya_core.cron_DEP" parent="maya_core.cron"
+              action="maya_core.action_cron_DEP"/>
+    <menuitem name="Ciclo" id="maya_core.cron_COUR" parent="maya_core.cron"
+              action="maya_core.action_cron_COUR"/>
+    <menuitem name="Módulo" id="maya_core.cron_SUBJ" parent="maya_core.cron"
+              action="maya_core.action_cron_SUBJ"/>
   </data>
 </odoo>
