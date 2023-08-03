@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "maya | Core",
+    'name': "Maya | Core",
     'version': '0.1.0a',
 
     'summary': """
@@ -17,6 +17,7 @@
          - Control de ciclos y módulos
          - Generación automática de calendiario escolar
          - Gestión de las aulas virtuales
+         - Gestión de las tareas automatizadas (CronJobs)
          ...
     """,
 
@@ -33,11 +34,17 @@
     # any module necessary for this one to work correctly
     'depends': ['base', 'mail'],
 
+    # external dependencies that have to be installed. Can be python or bin dependencies
+    # Only checks whether the dependency is installed. Not install the dependency!!
+    'external_dependencies': {
+       'python': ['moodleteacher', 'toolz'],
+    },
     # always loaded
     'data': [
         # seguridad
         'security/security_groups.xml',
         'security/ir.model.access.csv',
+         # vistas
         'views/views.xml',
         'views/templates.xml',
          # datos de modelos
