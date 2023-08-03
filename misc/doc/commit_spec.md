@@ -36,6 +36,6 @@ Definen el ámbito en el que se ha realizado el commit
 
 | Nombre | tipo |  descripción |
 | :-- | :-------:  |  :--------- | 
-| core | (_core_)  | Núcleo de la aplicación |
-| informes | (_rpt_)  | Informes |
-| moodle | (_mdl_)  | Conexión con Moodle |
+| core | (_core_)  | Núcleo del módulo |
+| informes | (_rpt_)  | Informes | moodle | (_mdl_)  | Conexión con Moodle |
+| cron | (_cron_)  | Tareas programadas |
