@@ -1,0 +1,14 @@
+<odoo>
+  <data>
+    <!-- Cron Jobs Templates -->
+    <record model="maya_core.cron_register" id="maya_core.cron_register_enrol">
+      <field name="name">Matricula alumnos</field>
+      <field name="key">MTAL</field>
+      <field name="context">FPC</field>
+      <field name="model">asfasdf</field>
+      <field name="code">mimetodo</field>
+      <field name="nextcall_day">school_year.date_init</field>
+      <field name="nextcall_hour">12:34:56</field>
+    </record>
+  </data>
+</odoo>

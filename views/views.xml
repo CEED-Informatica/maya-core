@@ -330,6 +330,21 @@
       </field>
     </record> 
 
+    <record model="ir.ui.view" id="maya_core.cron_register_tree">
+      <field name="name">Registro de plantiilas de tareas programadas</field>
+      <field name="model">maya_core.cron_register</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="key"/>
+          <field name="name"/>
+          <field name="context"/>
+          <field name="module"/>
+          <field name="model"/>
+          <field name="code"/>
+        </tree>
+      </field>
+    </record>
+  
     <!-- actions opening views on models -->
     <record model="ir.actions.act_window" id="maya_core.action_departament">
       <field name="name">Departamentos</field>
