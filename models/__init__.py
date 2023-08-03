@@ -12,5 +12,6 @@ from . import task_moodle
 from . import holiday
 from . import school_year
 from . import ir
+from . import cron_register
 from . import subject_student_rel
 from . import subject_classroom_rel

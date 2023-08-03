@@ -416,8 +416,14 @@
     </record>
 
     <record model="ir.actions.act_window" id="maya_core.action_cron_SUBJ">
-      <field name="name">Un módulo</field>
+      <field name="name">Tareas programadas para un módulo</field>
       <field name="res_model">maya_core.ir.cron</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="maya_core.action_cron_register">
+      <field name="name">Un módulo</field>
+      <field name="res_model">maya_core.cron_register</field>
       <field name="view_mode">tree,form</field>
     </record>
 
@@ -429,7 +435,6 @@
     <menuitem name="Curso" id="maya_core.course" parent="maya_core.menu_root"/>
     <menuitem name="Moodle" id="maya_core.moodle" parent="maya_core.menu_root"/>
     <menuitem name="Tareas programadas" id="maya_core.cron" parent="maya_core.menu_root"/>
-    
   
     <!-- menú centro -->
     <menuitem name="Departamentos" id="maya_core.school_departament" parent="maya_core.school"
@@ -474,5 +479,7 @@
               action="maya_core.action_cron_COUR"/>
     <menuitem name="Módulo" id="maya_core.cron_SUBJ" parent="maya_core.cron"
               action="maya_core.action_cron_SUBJ"/>
+    <menuitem name="Registro" id="maya_core.cron_register" parent="maya_core.cron"
+              action="maya_core.action_cron_register"/>
   </data>
 </odoo>
