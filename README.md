@@ -4,6 +4,8 @@ Módulo Odoo (core) para la gestión interna de los Ciclos Formativos del Centro
 
 _Maya_ es un módulo para Odoo que proporciona herramientas para simplificar y automatizar el trabajo diario tanto del profesorado, como del equipo directivo y personal administrativo de un centro de educación a distancia de Ciclos Formativos.
 
+Se basa en [Atenea](https://github.com/aoltra/atenea) (ya obsoleto)
+
 Permite:
 
 - Generación automática del calendario escolar
