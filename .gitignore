@@ -3,3 +3,6 @@
 
 # entorno virtual
 *-env/
+
+# sass -> css.map 
+*.css.map
