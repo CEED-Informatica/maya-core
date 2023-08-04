@@ -46,6 +46,7 @@
         'security/ir.model.access.csv',
          # vistas
         'views/views.xml',
+        'views/config_settings_view.xml',
         'views/templates.xml',
          # datos de modelos
         'data/school.xml',

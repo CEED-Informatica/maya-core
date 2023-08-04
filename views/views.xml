@@ -437,9 +437,17 @@
     </record>
 
     <record model="ir.actions.act_window" id="maya_core.action_cron_register">
-      <field name="name">Un módulo</field>
+      <field name="name">Tabla de registros de tareas programadas</field>
       <field name="res_model">maya_core.cron_register</field>
       <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="maya_core.action_config_settings">
+      <field name="name">Configuración</field>
+      <field name="res_model">res.config.settings</field>
+      <field name="view_mode">form</field>
+      <field name="target">inline</field> <!-- new window: emergente, curret: en al misma, inline: sin botones editar/crear-->
+      <field name="context">{'module': 'maya_core'}</field>
     </record>
 
     <!-- Top menu item -->
@@ -450,7 +458,9 @@
     <menuitem name="Curso" id="maya_core.course" parent="maya_core.menu_root"/>
     <menuitem name="Moodle" id="maya_core.moodle" parent="maya_core.menu_root"/>
     <menuitem name="Tareas programadas" id="maya_core.cron" parent="maya_core.menu_root"/>
-  
+    <menuitem name="Configuración" id="maya_core.configuration" parent="maya_core.menu_root"/>
+    
+
     <!-- menú centro -->
     <menuitem name="Departamentos" id="maya_core.school_departament" parent="maya_core.school"
               action="maya_core.action_departament" sequence="1"/>
@@ -496,5 +506,9 @@
               action="maya_core.action_cron_SUBJ"/>
     <menuitem name="Registro" id="maya_core.cron_register" parent="maya_core.cron"
               action="maya_core.action_cron_register"/>
+
+    <!-- Menu Configuración -->
+    <menuitem name="General" id="maya_core.settings" parent="maya_core.configuration"
+              action="maya_core.action_config_settings"/>
   </data>
 </odoo>

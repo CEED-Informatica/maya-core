@@ -1,0 +1,50 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="maya_core.config_settings_view_form">
+      <field name="name">Configuración Maya</field>
+      <field name="model">res.config.settings</field>
+      <!-- hereda de la vista base de configuraciones --> 
+      <field name="inherit_id" ref="base.res_config_settings_view_form" /> 
+      <field name="arch" type="xml">
+      <!--  busca todos los nodos de tipo div con la clase settings 
+            inside (default): your values will be appended inside the tag
+            after: add the content after the tag
+            before: add the content before the tag
+            replace: replace the content of the tag. -->
+        <xpath expr="//div[hasclass('settings')]" position="inside">
+          <!-- string, el texto que aparecerá en el menu lateral-->
+          <div class="app_settings_block" data-string="Maya" id="Maya" string="Maya"
+          data-key="maya.action_config_settings">
+            <h2>Moodle</h2>
+            <div class="row mt16 o_settings_container" name="maya_core_moodle_setting_container">
+              <!-- contenedor URL Moodle -->
+              <div class="col-12 col-lg-6 o_setting_box" title="URL Moodle">
+                <div class="o_setting_right_pane">
+                 <span class="o_form_label">URL</span>
+                 <div class="text-muted">Dirección servidor Moodle</div>
+                 <div class="text-muted content-group mt8">
+                    <field name="moodle_url" class="text-center oe_inline" />
+                  </div>
+                </div>
+              </div>
+              <!-- contenedor nombre de usuario -->
+              <div class="col-12 col-lg-6 o_setting_box" title="Usuario">
+                <div class="o_setting_left_pane"/>
+                <div class="o_setting_right_pane">
+                 <span class="o_form_label">Usuario</span>
+                 <div class="text-muted">Usuario (clave) definido en .maya_moodleteacher</div>
+                 <div class="text-muted content-group mt8">
+                   <field name="moodle_user" class="text-center oe_inline" />
+                 </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </xpath>
+      </field>
+    </record>
+
+    
+  </data>
+</odoo>
