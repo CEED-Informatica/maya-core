@@ -60,6 +60,8 @@
         'data/roles/tutors.xml',
         'data/roles/validations.xml',
         'data/registered_cron_jobs.xml',
+         # reports
+        'reports/paper_format.xml',  
     ],
     'installable': True,
     'application': True,
