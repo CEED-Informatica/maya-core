@@ -9,18 +9,19 @@ _logger = logging.getLogger(__name__)
 
 class MayaMoodleConnection(MoodleConnection):
   """
-    Configura una conexión a un ser servidor de Moodle a partir
+    Configura una conexión a un servidor de Moodle a partir
     de los datos almacenados en ~/.maya_moodleteacher.
 
     Hereda de MoodleConnection 
     
     Args:
       moodle_host:        La URL base del servidor de Moodle
-      user:               Usuario Moodle que realiza la conexión
+      user:               Usuario que quiere realizar la conexión (no es el usuario Moodle)
+                          El acceso al token se realiza buscando en .maya_moodleteacher el usuario. 
   """
-  def __init__(self, moodle_user, moodle_host):
+  def __init__(self, user, moodle_host):
 
-    if not moodle_host or not moodle_user:
+    if not moodle_host or not user:
       raise AttributeError('No se ha proporcionado usuario o url.')
     
     try:
@@ -29,9 +30,9 @@ class MayaMoodleConnection(MoodleConnection):
     except Exception:
       raise Exception('No se encuentra el fichero .maya_moodleteacher. Utiliza el script save_token_moodle para generarlo.')
   
-    if moodle_user not in users_tokens:
+    if user not in users_tokens:
       raise Exception('El usuario {} no se encuentra en el fichero .maya_moodleteacher. Utiliza el script save_token_moodle para añadirlo.'.format(moodle_user))
   
 
-    super().__init__(moodle_host,  str(users_tokens[moodle_user]), is_fake = False)
+    super().__init__(moodle_host,  str(users_tokens[user]), is_fake = False)
     
