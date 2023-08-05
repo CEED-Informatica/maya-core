@@ -44,11 +44,12 @@
         # seguridad
         'security/security_groups.xml',
         'security/ir.model.access.csv',
-         # vistas
+        # vistas
         'views/views.xml',
         'views/config_settings_view.xml',
         'views/templates.xml',
-         # datos de modelos
+        # datos de modelos
+        'data/config/config_data.xml',
         'data/school.xml',
         'data/departaments.xml',
         'data/courses.xml',
@@ -60,7 +61,7 @@
         'data/roles/tutors.xml',
         'data/roles/validations.xml',
         'data/registered_cron_jobs.xml',
-         # reports
+        # reports
         'reports/paper_format.xml',  
     ],
     'installable': True,
