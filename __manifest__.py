@@ -62,6 +62,8 @@
         'data/roles/validations.xml',
         'data/registered_cron_jobs.xml',
         # reports
+        'reports/custom_footer.xml',
+        'reports/school_calendar.xml',
         'reports/paper_format.xml',  
     ],
     'installable': True,
