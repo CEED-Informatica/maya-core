@@ -485,12 +485,6 @@
     <menuitem name="Tareas asociadas" id="maya_core.moodle_task" parent="maya_core.moodle"
               action="maya_core.action_task"/>
  
-    <!-- menú Moodle -->
-    <menuitem name="Aulas virtuales" id="maya_core.moodle_classroom" parent="maya_core.moodle"
-              action="maya_core.action_classroom"/>
-    <menuitem name="Tareas asociadas" id="maya_core.moodle_task" parent="maya_core.moodle"
-              action="maya_core.action_task"/>
-
     <!-- menu Tareas programadas -->
     <menuitem name="General (estudiantes)" id="maya_core.cron_FPC" parent="maya_core.cron"
               action="maya_core.action_cron_FPC"/>
