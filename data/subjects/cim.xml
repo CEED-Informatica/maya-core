@@ -6,7 +6,7 @@
       <field name="code">0631</field>
       <field name="name">Formación y orientación laboral</field>
       <field name="year">1</field>
-      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_TIL')])]"/>                      
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_TIL')])]"/>
     </record>
 
     <record model="maya_core.subject" id="maya_core.subject_TIL_GATL">

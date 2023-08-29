@@ -205,13 +205,5 @@
       <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GIAT'), ref('maya_core.course_AVGE')])]"/>       
     </record>
 
-    <record model="maya_core.subject" id="maya_core.subject_MIX_LE2"> 
-      <field name="abbr">LE2</field>
-      <field name="code">0180</field>
-      <field name="name">Segunda lengua extranjera</field>
-      <field name="year">2</field>
-      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GIAT'), ref('maya_core.course_GAT'),ref('maya_core.course_AVGE')])]"/>                           
-    </record>
-
   </data>
 </odoo>

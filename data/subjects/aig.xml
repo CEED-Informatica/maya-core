@@ -1,0 +1,150 @@
+<odoo>
+  <data>
+    <!-- Módulos AFI -->
+    <record model="maya_core.subject" id="maya_core.subject_AFI_GRRHH">
+      <field name="abbr">GRRHH</field>
+      <field name="code">0652</field>
+      <field name="name">Gestión de recursos humanos</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_AFI')])]"/>                      
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_AFI_GF">
+      <field name="abbr">GF</field>
+      <field name="code">0653</field>
+      <field name="name">Gestión financiera</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_AFI')])]"/>
+    </record>
+		
+    <record model="maya_core.subject" id="maya_core.subject_AFI_CF">
+      <field name="abbr">CF</field>
+      <field name="code">0654</field>
+      <field name="name">Contabilidad y fiscalidad</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_AFI')])]"/>
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_AFI_GLC">
+      <field name="abbr">GLC</field>
+      <field name="code">0655</field>
+      <field name="name">Gestión logística y comercial</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_AFI')])]"/>
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_AFI_SE">
+      <field name="abbr">SE</field>
+      <field name="code">0656</field>
+      <field name="name">Simulación empresarial</field>
+      <field name="year">2</field>    
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_AFI')])]"/>
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_AFI_PRY">
+      <field name="abbr">PRY</field>
+      <field name="code">0657</field>
+      <field name="name">Proyecto de administración y finanzas</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_AFI')])]"/>                      
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_AFI_FOL">
+      <field name="abbr">FOL</field>
+      <field name="code">0658</field>
+      <field name="name">Formación y orientación laboral</field>
+      <field name="year">1</field>  
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_AFI')])]"/>
+    </record>
+
+    <!-- Módulos ADI -->
+    <record model="maya_core.subject" id="maya_core.subject_ADI_PE">
+      <field name="abbr">PE</field>
+      <field name="code">0661</field>
+      <field name="name">Protocolo empresarial</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_ADI')])]"/>  
+    </record>
+	
+    <record model="maya_core.subject" id="maya_core.subject_ADI_OEE">
+      <field name="abbr">OEE</field>
+      <field name="code">0662</field>
+      <field name="name">Organización de eventos empresariales</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_ADI')])]"/>  
+    </record>
+	
+    <record model="maya_core.subject" id="maya_core.subject_ADI_GAI">
+      <field name="abbr">GAI</field>
+      <field name="code">0663</field>
+      <field name="name">Gestión avanzada de la información</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_ADI')])]"/>  
+    </record>
+	
+    <record model="maya_core.subject" id="maya_core.subject_ADI_SLE">
+      <field name="abbr">SLE</field>
+      <field name="code">0180</field>
+      <field name="name">Segunda lengua extranjera</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_ADI')])]"/>  
+    </record>
+	
+    <record model="maya_core.subject" id="maya_core.subject_ADI_PRY">
+      <field name="abbr">PRY</field>
+      <field name="code">0667</field>
+      <field name="name">Proyecto de asistencia a la dirección</field>
+      <field name="year">2</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_ADI')])]"/>  
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_ADI_FOL">
+      <field name="abbr">FOL</field>
+      <field name="code">0665</field>
+      <field name="name">Formación y orientación laboral</field>
+      <field name="year">1</field>  
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_ADI')])]"/>
+    </record>
+
+    <!-- Módulos MIX (Varios ciclos)-->
+    <record model="maya_core.subject" id="maya_core.subject_MIX_GDJE">
+      <field name="abbr">GDJE</field>
+      <field name="code">0647</field>
+      <field name="name">Gestión de la documentación jurídica y empresarial</field>
+      <field name="year">1</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_AFI'), ref('maya_core.course_ADI')])]"/>
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_MIX_RRHHRSC">
+      <field name="abbr">RRHHRSC</field>
+      <field name="code">0648</field>
+      <field name="name">Recursos humanos y responsabilidad social corporativa</field>
+      <field name="year">1</field>
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_AFI'), ref('maya_core.course_ADI')])]"/>
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_MIX_OPI">
+      <field name="abbr">OPI</field>
+      <field name="code">0649</field>
+      <field name="name">Ofimática y proceso de la información</field>
+      <field name="year">1</field>  
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_AFI'), ref('maya_core.course_ADI')])]"/>
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_MIX_PIAC">
+      <field name="abbr">PIAC</field>
+      <field name="code">0650</field>
+      <field name="name">Proceso integral de la actividad comercial</field>
+      <field name="year">1</field>  
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_AFI'), ref('maya_core.course_ADI')])]"/>
+    </record>
+
+    <record model="maya_core.subject" id="maya_core.subject_MIX_CAC">
+      <field name="abbr">CAC</field>
+      <field name="code">0651</field>
+      <field name="name">Comunicación y atención al cliente</field>
+      <field name="year">1</field>  
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_AFI'), ref('maya_core.course_ADI')])]"/>
+    </record>	
+  </data>
+</odoo>

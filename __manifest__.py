@@ -53,6 +53,7 @@
         'data/school.xml',
         'data/departaments.xml',
         'data/courses.xml',
+        'data/subjects/aig.xml',
         'data/subjects/tic.xml',
         'data/subjects/hit.xml',
         'data/subjects/cim.xml',
