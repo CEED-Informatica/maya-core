@@ -1,24 +1,31 @@
 import logging
 import datetime
+import re
 
 from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 from ..support.constants import CRON_CONTEXTS
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 _logger = logging.getLogger(__name__)
 
 @dataclass
 class CronJobData:
   """
-  Encapsula la información que se le puede pasar a las plantillas 
+  Encapsula la información que se le puede pasar a las plantillas de tareas programadas
+  Hacen referencia a tareas de moodle
   """
   classroom_id: int = None
   course_id: int = None
   subject_id: int = None
-  task_id: int = None
-
+  task_id: int = field(default = None, init = False, repr = False) # el objeto se podrá crear sin el atributo task_id
+   
+  def __str__(self) -> str:
+    if self.task_id == None:
+      return f'{self.classroom_id}, {self.course_id}, {self.subject_id}'
+    else:
+      return f'{self.classroom_id}, {self.course_id}, {self.subject_id}, {self.task_id}'
 
 class CronRegister(models.Model):
   """
@@ -30,7 +37,7 @@ class CronRegister(models.Model):
   module = fields.Char(string = 'Módulo origen', help = 'Nombre del módulo que registra la tarea', compute= '_set_module', store = True)
   key = fields.Char(string = 'Clave', size = 5, required = True,  help = 'Clave para identificar la plantilla. Debe ser único')
   state = fields.Char(size = 4, default = 'code') 
-  code = fields.Char(size = 5, required = True,  help = 'Método a ejecutar')
+  code = fields.Char(required = True,  help = 'Método a ejecutar')
   context = fields.Char(string = 'Contexto', size = 4, required = True, help = 'Contexto en el que trabaja la tarea programada')
   name = fields.Char(string = 'Descripción', size = 80, required = True)
   model = fields.Char(size = 60, required = True, help = 'Nombre del modelo en el que estará el código a ejecutar')
@@ -39,11 +46,12 @@ class CronRegister(models.Model):
   numbercall = fields.Integer(default = -1, help = 'Número de veces que será ejecutada la tarea')
   nextcall_day = fields.Char(required = True, help = 'Día de la primera ejecución. Soporta: \
                                                         día -> 2023/12/22 (ISO Format),\
-                                                        campo de otro modelo -> school_year.date_init, \
+                                                        campo de otro modelo (school_year) -> school_year.date_init, \
                                                         día de la creación de la tarea -> today.\n\
-                                                      Las dos últimas opcones adminte signo + y - para añadir o restar\
+                                                      Las dos últimas opcones admiten signo + y - para añadir o restar\
                                                       unidades de tipo interval_type: today + 2')
   nextcall_hour = fields.Char(required = True, help = 'Hora de la siguiente ejecución (ej: 18:20:50)')
+  literal_nextcall_day = fields.Char(compute = '_compute_literal_nextcall_day')
   doall = fields.Boolean(default = True, help = 'Si el servidor cae, cuado se reinicie lanzará las tareas no ejecutadas')
 
   _sql_constraints = [ 
@@ -65,20 +73,51 @@ class CronRegister(models.Model):
   @api.constrains('nextcall_day')
   def _check_nextcall_day(self):
     for record in self:
-      if record.nextcall_day.lower() == 'today':
-        return
-      
-      if record.nextcall_day.lower().startswith('school_year.') == True:
-        return
-       
+
+      match = re.match(self._get_pattern_nextcall_day(), self.nextcall_day.lower())
+
+      if match == None:
+        try:
+          datetime.date.fromisoformat(record.nextcall_day)
+        except ValueError:
+          raise ValidationError('Formato de día en nextcall no soportado')
+        
+
+  @api.constrains('nextcall_hour')
+  def _check_nextcall_hour(self):
+    for record in self:
       try:
-        datetime.date.fromisoformat(record.nextcall_day)
+        datetime.time.fromisoformat(record.nextcall_hour)
       except ValueError:
-        raise ValidationError('Formato de día en nextcall no soportado')
+        raise ValidationError('Formato de hora en nextcall no soportado')
 
   def _set_module(self):
     # TODO comprobar que el módulo sea un módulo de confianza
     for record in self:
       record.module = record._module
 
-          
+  def is_nextcall_day_in_format_iso(self) -> bool: 
+    self.ensure_one()
+    try:
+      datetime.date.fromisoformat(self.nextcall_day)
+    except ValueError:
+      return False
+    
+    return True
+
+  @api.depends('nextcall_day')
+  def _compute_literal_nextcall_day(self):
+    for record in self:
+    
+      match = re.match(self._get_pattern_nextcall_day(), record.nextcall_day.lower())
+      record.literal_nextcall_day = '{}|{}|{}'.format(match.group(1), 
+                                                      match.group(3) if match.group(3) else '',
+                                                      match.group(4) if match.group(4) else '')
+
+  def _get_pattern_nextcall_day(self) -> str:
+    fields = self.env["maya_core.school_year"]._fields
+
+    valid_dates = [ field for field in fields if field.startswith("date_")]
+    valid_dates_regex = '|'.join(map(re.escape, valid_dates))
+
+    return r'^(today|(school_year\.({})))?([+-]\d+)?$'.format(valid_dates_regex)
