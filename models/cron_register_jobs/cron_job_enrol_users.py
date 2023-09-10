@@ -3,6 +3,10 @@
 from odoo import models, api
 import logging
 
+# Moodle
+from ...support.maya_moodleteacher.maya_moodle_connection import MayaMoodleConnection
+from ...support.maya_moodleteacher.maya_moodle_user import MayaMoodleUsers
+
 _logger = logging.getLogger(__name__)
 
 class CronJobEnrolUsers(models.TransientModel):
@@ -80,7 +84,7 @@ class CronJobEnrolUsers(models.TransientModel):
       _logger.error("CRON: subject_id no definido")
       return
     
-    """   try:
+    try:
       conn = MayaMoodleConnection( 
         moodle_user = self.env['ir.config_parameter'].get_param('maya_core.moodle_user'), 
         moodle_host = self.env['ir.config_parameter'].get_param('maya_core.moodle_url')) 
@@ -88,9 +92,9 @@ class CronJobEnrolUsers(models.TransientModel):
       raise Exception('No es posible realizar la conexión con Moodle')
 
     # obtención de los usuarios
-    users = MayaMoodleUsers.from_course(conn, classroom_id, only_students = True) """
+    users = MayaMoodleUsers.from_course(conn, classroom_id, only_students = True)
 
-    """ for user in users:
-      self._enrol_student(user, subject_id, course_id) """
+    for user in users:
+      self._enrol_student(user, subject_id, course_id)
 
     
