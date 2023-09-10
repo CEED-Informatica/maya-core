@@ -91,10 +91,11 @@ class CronRegister(models.Model):
       except ValueError:
         raise ValidationError('Formato de hora en nextcall no soportado')
 
+  @api.constrains('key')
   def _set_module(self):
     # TODO comprobar que el módulo sea un módulo de confianza
-    for record in self:
-      record.module = record._module
+    self.ensure_one()
+    self.module = self._module
 
   def is_nextcall_day_in_format_iso(self) -> bool: 
     self.ensure_one()
