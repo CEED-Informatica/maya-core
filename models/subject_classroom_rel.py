@@ -5,7 +5,6 @@ from odoo import models, fields, api
 
 class SubjectClassroomRel(models.Model): 
   """
-  S""
   Se crea como tabla de relación (pivote) entre Subject y Classroom para dar soporte a un campo 
   intermedio (course_id)
   """

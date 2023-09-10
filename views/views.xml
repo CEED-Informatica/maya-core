@@ -254,7 +254,7 @@
                 </group>
               </group>
             </page>
-             <page string = 'PFC'>
+            <page string = 'PFC'>
               <group col="2">
                 <group>
                   <separator string="Primer periodo (junio)" style="padding-bottom:15px"/>
@@ -310,28 +310,16 @@
                 <group></group>
               </group>
             </page>
-            <!-- <page string = "Tareas">
-              <field name = "cron_ids">
-                <tree>
-                  <field name = "name"/>
-                  <field name = "interval_number"/>
-                  <field name = "interval_type"/>
-                  <field name = "nextcall"/>
-                  <field name = "active"/> 
-                  <field name = "model_id"/>
-                  <field name = "code"/>
-                  <button string="Ejecutar manualmente" name="run_cron" 
-                    icon="fa-play" class="oe_highlight" type="object"/>
-                </tree>
-              </field>
-            </page> -->
+            <page string = "Tareas"  attrs="{'invisible': 1 }">
+              <field name = "cron_ids" />
+            </page>
           </notebook>
         </form>
       </field>
     </record> 
 
     <record model="ir.ui.view" id="maya_core.cron_register_tree">
-      <field name="name">Registro de plantiilas de tareas programadas</field>
+      <field name="name">Registro de plantillas de tareas programadas</field>
       <field name="model">maya_core.cron_register</field>
       <field name="arch" type="xml">
         <tree>
@@ -344,7 +332,25 @@
         </tree>
       </field>
     </record>
-  
+
+    <record model="ir.ui.view" id="maya_core.ir_cron_tree">
+      <field name="name">Regprogramadas</field>
+      <field name="model">maya_core.ir.cron</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name = "name"/>
+          <field name = "interval_number"/>
+          <field name = "interval_type"/>
+          <field name = "nextcall"/>
+          <field name = "active"/> 
+          <field name = "model_id"/>
+          <field name = "code"/>
+          <button string="Ejecutar manualmente" name="run_cron" 
+            icon="fa-play" class="oe_highlight" type="object"/>
+        </tree>
+      </field>
+    </record>
+    
     <!-- actions opening views on models -->
     <record model="ir.actions.act_window" id="maya_core.action_departament">
       <field name="name">Departamentos</field>
@@ -401,7 +407,7 @@
     </record>
 
     <record model="ir.actions.act_window" id="maya_core.action_cron_FPC">
-      <field name="name">Tareas programadas para todos los estudiantes</field>
+      <field name="name">Tareas programadas para todos los estudiantes de un ciclo</field>
       <field name="res_model">maya_core.ir.cron</field>
       <field name="view_mode">tree,form</field>
     </record>

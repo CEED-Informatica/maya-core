@@ -1413,6 +1413,8 @@ class SchoolYear(models.Model):
   def cron_template2task(self, cron_template, task_name, job_data):
     task_data =  {}
 
+    
+
     #task_data['school_year_id'] = self.ids[0]
     task_data['context'] = cron_template.context
     task_data['name'] = task_name
@@ -1423,7 +1425,13 @@ class SchoolYear(models.Model):
     task_data['code'] = 'model.{}({})'.format(cron_template.code, job_data)
     task_data['doall'] = 0 # cron_template.doall
     task_data['numbercall'] = cron_template.numbercall
-    task_data['model_id'] = self.env.ref('maya_core.model_maya_core_classroom').ids[0] #self.env.ref(cron_template.model)
+    #task_data['model_id'] = self.env.ref('maya_core.model_maya_core_classroom').ids[0] #self.env.ref(cron_template.model)
+    try:
+      task_data['model_id'] = self.env.ref(f'maya_core.model_maya_core_{cron_template.model}').ids[0]
+    except:
+      self.env[f'maya_core.{cron_template.model}'].create( {'module_name': 'aaa'} )
+      task_data['model_id'] = self.env.ref(f'maya_core.{cron_template.model}').ids[0]
+
     
     if cron_template.is_nextcall_day_in_format_iso():
       task_data['nextcall'] = cron_template['nextcall_day'] + cron_template['nextcall_hour']

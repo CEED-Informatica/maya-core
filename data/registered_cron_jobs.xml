@@ -5,7 +5,7 @@
       <field name="name">Matricula alumnos</field>
       <field name="key">MTAL</field>
       <field name="context">FPC</field>
-      <field name="model">maya_core.model_maya_core_classroom</field>
+      <field name="model">cron_job_enrol_users</field>
       <field name="code">cron_enrol_students</field>
       <field name="numbercall">1</field>
       <field name="nextcall_day">school_year.date_init-2</field>
