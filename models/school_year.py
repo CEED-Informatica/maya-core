@@ -1430,8 +1430,16 @@ class SchoolYear(models.Model):
     else:
       day = cron_template.literal_nextcall_day.split('|')
       if day[0] == 'today':
-        today = date.today()
-        task_data['nextcall'] = str(today) + ' ' + cron_template.nextcall_hour
+        value = date.today()
+      else:
+        value = getattr(self, day[1])
+    
+      if len(day[2]) != 0:
+        incr_days = int(day[2])
+      else:
+        incr_days = 0        
 
-          
+      calldate = value + datetime.timedelta(days = incr_days)
+      task_data['nextcall'] = str(calldate) + ' ' + cron_template.nextcall_hour
+
     return task_data
