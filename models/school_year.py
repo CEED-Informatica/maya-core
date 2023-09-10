@@ -3,8 +3,11 @@
 import datetime
 from odoo import api, models, fields, _
 from odoo.exceptions import ValidationError, AccessDenied
+from datetime import date
 import toolz
 import logging
+
+from .cron_register import CronJobData
 
 _logger = logging.getLogger(__name__)
 
@@ -125,7 +128,7 @@ class SchoolYear(models.Model):
   date_1term_pfc_list2 = fields.Date(string = 'Resolución definitiva', compute = '_compute_1term_pfc_list2') 
 
   holidays_ids = fields.One2many('maya_core.holiday', 'school_year_id')
-  #cron_ids = fields.One2many('atenea.ir.cron', 'school_year_id') #, domain = 'self._get_school_year_id')
+  cron_ids = fields.One2many('maya_core.ir.cron', 'school_year_id')
 
   # report calendario escolar  
   school_calendar_version = fields.Integer(string = 'Versión calendario escolar', default = 1, store = True, readonly = True)
@@ -923,7 +926,61 @@ class SchoolYear(models.Model):
     - matriculación
     - descarga de convalidaciones
     """
+    self.ensure_one()
+
+    if self.date_init == False:
+      return
+  
+    # se obtienen todos los id de los ciclos 
+    courses = self.env['maya_core.course'].search([])
+    cron_ids = []
+
+    """  # limpieza de posibles tareas previas que han sido descartadas
+    non_referenced_task = self.env['maya_core.ir.cron'].search([('school_year_id', '=', False)])
+    act_server_ids = [task.ir_actions_server_id.id for task in non_referenced_task]
+
+    if len(non_referenced_task) > 0:
+      non_referenced_task.unlink()
+      
+    kik = self.env['ir.actions.server'].search([('id', 'in', act_server_ids)]).unlink()
+    # fin limpieza """
+
+    self.cron_ids = [(5, 0 ,0)]
+  
+    for course in courses:
+      # módulos de tutoria
+      _logger.info(course.subjects_ids)
+      tut_subjects = [ subject for subject in course.subjects_ids if subject['code'][:3] == 'TUT']
+
+      _logger.info(tut_subjects)
+      if not tut_subjects:
+        _logger.error('No hay módulos de tutoria asignados en {}'.format(course.abbr))
+        continue
+
+      # únicamente módulos de tutoria que tengan aulas distintas
+      distinct_subject_tut = [subject for subject in list(toolz.unique(tut_subjects, key = lambda x: x.get_classroom_by_course_id(course)))]
+    
+      # por cada aula de tutoria que haya en ese ciclo
+      for subject in distinct_subject_tut:   
+        classroom_id = subject.get_classroom_by_course_id(course)
+
+        job_data = CronJobData(classroom_id.moodle_id, course.id, subject.id)
+
+        ## MATRICULA 
+        cron_template = self.env['maya_core.cron_register'].search([('key', '=', 'MTAL')])
+        task_name = 'Matricula alumnos de {} en Maya {}'.format(course.abbr, 
+              '/{}'.format(subject.year) if len(list(distinct_subject_tut)) > 1 else '')
+        task_data = self.cron_template2task(cron_template, task_name, str(job_data))
+        task = (0, 0, task_data)
+
+        cron_ids.append(task)
+
+
+    # añade nuevos registro, pero los mantiene en "el aire" hasta que se grabe el school_year 
+    self.cron_ids = cron_ids
+
     return 
+  
     for record in self:
       if record.date_init == False:
         continue
@@ -1352,3 +1409,29 @@ class SchoolYear(models.Model):
 
       self.dates[holiday.description] = holiday_dto
       self.dates[holiday.description] = holiday_end_dto
+
+  def cron_template2task(self, cron_template, task_name, job_data):
+    task_data =  {}
+
+    #task_data['school_year_id'] = self.ids[0]
+    task_data['context'] = cron_template.context
+    task_data['name'] = task_name
+    task_data['active'] = True
+    task_data['state'] = cron_template.state
+    task_data['interval_number'] = cron_template.interval_number
+    task_data['interval_type'] = cron_template.interval_type
+    task_data['code'] = 'model.{}({})'.format(cron_template.code, job_data)
+    task_data['doall'] = 0 # cron_template.doall
+    task_data['numbercall'] = cron_template.numbercall
+    task_data['model_id'] = self.env.ref('maya_core.model_maya_core_classroom').ids[0] #self.env.ref(cron_template.model)
+    
+    if cron_template.is_nextcall_day_in_format_iso():
+      task_data['nextcall'] = cron_template['nextcall_day'] + cron_template['nextcall_hour']
+    else:
+      day = cron_template.literal_nextcall_day.split('|')
+      if day[0] == 'today':
+        today = date.today()
+        task_data['nextcall'] = str(today) + ' ' + cron_template.nextcall_hour
+
+          
+    return task_data
