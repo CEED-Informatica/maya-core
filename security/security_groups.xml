@@ -14,12 +14,6 @@
       <field name="category_id" ref="maya_core.category_group"/>
     </record>
 
-    <record id="maya_core.group_VALID" model="res.groups">
-      <field name="name">Convalidadores</field>
-      <field name="category_id" ref="maya_core.category_group"/>
-      <field name="implied_ids" eval="[(4,ref('maya_core.group_TEACH'))]"/>
-    </record>
-
     <record id="maya_core.group_MNGT" model="res.groups">
       <field name="name">Equipo Directivo</field>
       <field name="category_id" ref="maya_core.category_group"/>
