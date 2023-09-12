@@ -1,14 +1,13 @@
 <odoo>
-    <record id="maya_core_config_settings" model="res.config.settings">
-        <field name="company_id" ref="base.main_company"/>
-        <field name="external_email_server_default" eval="True" />
-        <!-- Moodle-->
-        <field name="moodle_user">maya</field>
-        <field name="moodle_url">http://moodle:8080</field>
-    </record>
-    <function model="res.config.settings" name="execute">
-        <value model="res.config.settings"
-               search="[('id', '=', ref('maya_core_config_settings'))]"/>
-    </function>
-
+  <record id="maya_core_config_settings" model="res.config.settings">
+    <field name="company_id" ref="base.main_company"/>
+    <field name="external_email_server_default" eval="True" />
+    <!-- Moodle-->
+    <field name="moodle_user">maya</field>
+    <field name="moodle_url">http://moodle:8080</field>
+  </record>
+  <function model="res.config.settings" name="execute">
+    <value model="res.config.settings"
+           search="[('id', '=', ref('maya_core_config_settings'))]"/>
+  </function>
 </odoo>
