@@ -26,7 +26,7 @@ class Classroom(models.Model):
   # otra información). Para ello la solución más sencilla es dividir ese many2many es dos many2one
   subjects_ids = fields.One2many('maya_core.subject_classroom_rel', 'classroom_id')
   
-  """  tasks_moodle_ids = fields.One2many('maya_core.task_moodle', 'classroom_id', string = 'Tareas que están conectadas con Maya') """
+  tasks_moodle_ids = fields.One2many('maya_core.task_moodle', 'classroom_id', string = 'Tareas que están conectadas con Maya')
 
   lang_id = fields.Many2one('res.lang', domain = [('active','=', True)], string = 'Idioma')
 
@@ -34,4 +34,11 @@ class Classroom(models.Model):
     ('unique_moodle_id', 'unique(moodle_id)', 'El identificador de moodle tiene que ser único.'),
   ]
 
-  
+  def get_task_id_by_key(self, key):
+    """ Devuelve la tarea encargada de las convalidaciones """  
+    tasks = list(filter(lambda item: item['key'] == key, self.tasks_moodle_ids))
+    if not tasks:
+      _logger.error("No hay tarea de convalidaciones en el aula")
+      return None
+
+    return tasks[0].moodle_id
