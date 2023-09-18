@@ -965,6 +965,16 @@ class SchoolYear(models.Model):
 
         cron_ids.append(task)
 
+        ## CONVALIDACIONES
+        cron_template = self.env['maya_core.cron_register'].search([('key', '=', 'DVAL')])
+        task_name = 'Descarga datos convalidaciones {} desde Aules {}'.format(course.abbr, 
+              '/{}'.format(subject.year) if len(list(distinct_subject_tut)) > 1 else '')
+        job_data.task_id = classroom_id.get_task_id_by_key('validation')
+        task_data = self.cron_template2task(cron_template, task_name, str(job_data))
+        task = (0, 0, task_data)
+
+        cron_ids.append(task)
+
 
     # añade nuevos registro, pero los mantiene en "el aire" hasta que se grabe el school_year 
     self.cron_ids = cron_ids

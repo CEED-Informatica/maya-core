@@ -3,7 +3,6 @@
 from odoo import models, fields, api
 from datetime import date, timedelta, datetime
 
-import os
 import logging
 
 _logger = logging.getLogger(__name__)
@@ -35,10 +34,10 @@ class Classroom(models.Model):
   ]
 
   def get_task_id_by_key(self, key):
-    """ Devuelve la tarea encargada de las convalidaciones """  
+    """ Devuelve la tarea asociada a la key """  
     tasks = list(filter(lambda item: item['key'] == key, self.tasks_moodle_ids))
     if not tasks:
-      _logger.error("No hay tarea de convalidaciones en el aula")
+      _logger.error(f'No hay tarea asociada a la key {key} en el aula')
       return None
 
     return tasks[0].moodle_id
