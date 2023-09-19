@@ -1,0 +1,8 @@
+- name: Documentación
+  link: /docs
+- name: Anexos
+  link: /annex
+- name: Preguntas frecuentes
+  link: /faq
+- name: Acerca de
+  link: /about

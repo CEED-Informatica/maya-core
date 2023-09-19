@@ -1,8 +1,17 @@
-## Proceso de configuración
+---
+layout: page
+menubar: docs_menu
+title: Configuración Odoo
+subtitle: Cómo empezar
+show_sidebar: false
+hero_height: is-fullwidth
+---
+
+## Configuración Odoo
 
 Los pasos para la configuración de Odoo son:
 
-  > Es importante haber realizado previamente el proceso de configuracionm de Moodle
+  > Es importante haber realizado previamente el proceso de configuración de Moodle. Ver [configuración de Moodle](/maya-core/docs/como-empezar/moodle-config.md)
 
   1. [ ] Creación de la base de datos. 
 
@@ -30,12 +39,16 @@ Los pasos para la configuración de Odoo son:
 
   4. [ ] Configurar el formato de fecha al europeo. 
   
-      Como _administrador_:
+      Como _administrador_ y con el modo debug activo:
 
          Ajustes / Idiomas / Administrar idiomas
       
       Para cada uno de los idiomas instalados comprobar (y cambiar en caso contrario) que el formato de fecha sea _%d/%m/%Y_.
   
-  5. [ ] Clonar el repo de **Maya | Core** desde [github](https://github.com/CEED-Informatica/maya_core). Para ello la mejor opción es el uso de script _create-module.sh_, opción O2, tal y como se explica [aquí](https://github.com/aoltra/odoodock#usando-el-script-create-modulesh)
+  5. [ ] Clonar en la carpeta de los _addons_ el repo de **Maya | Core** desde [github](https://github.com/CEED-Informatica/maya_core). 
+     
+     En caso de usar [odooddock](https://aoltra.github.io/odoodock/), la mejor opción es el uso de script _create-module.sh_, opción O2, tal y como se explica [aquí](https://aoltra.github.io/odoodock/docs/modulos/crear-modulos-script).
+
+     > Es posible que al actualizar la lista de aplicaciones desde _Odoo_, **Maya | Core** no aparezca entre ellas. Lo mejor en estos casos es tumbar (_docker compose down_) y volver a levantar los contenedores (_up.sh_)
 
   

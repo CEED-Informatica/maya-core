@@ -1,0 +1,14 @@
+- label: Cómo empezar
+  items:
+    - name: Configuración de Moodle
+      link: /docs/como-empezar/moodle-config
+    - name: Configuración Odoo
+      link: /docs/como-empezar/odoo-config
+      
+- label: Maya
+  items:
+    - name: Instalación
+      link: /docs/maya/maya-core-install
+    - name: Configuración
+      link: /docs/maya/maya-core-config
+      
