@@ -1,7 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_maya_core_course,access_maya_core_course,maya_core.model_maya_core_course,base.group_user,1,1,1,1
 access_maya_core_subject,access_maya_core_subject,maya_core.model_maya_core_subject,base.group_user,1,1,1,1
-access_maya_core_departament,access_maya_core_departament,maya_core.model_maya_core_departament,base.group_user,1,1,1,1
 access_maya_core_rol,access_maya_core_rol,maya_core.model_maya_core_rol,base.group_user,1,1,1,1
 access_maya_core_employee,access_maya_core_employee,maya_core.model_maya_core_employee,base.group_user,1,1,1,1
 access_maya_core_student,access_maya_core_student,maya_core.model_maya_core_student,base.group_user,1,1,1,1

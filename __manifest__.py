@@ -43,6 +43,7 @@
     'data': [
         # seguridad
         'security/security_groups.xml',
+        'security/core_access.xml',
         'security/ir.model.access.csv',
         # vistas
         'views/views.xml',

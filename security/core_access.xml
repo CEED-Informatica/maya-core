@@ -1,0 +1,50 @@
+<odoo>
+  <data>
+    <!-- ******************************************************** -->
+    <!-- permisos sobre el modelo de convalidaciones (validation) -->
+    <!-- ******************************************************** -->
+
+    <!-- permisos Ciclos -->
+    <record id="maya_core.course_general_user_access" model="ir.model.access">
+      <field name="name">Acceso usuario general a los Ciclos</field>
+      <field name="model_id" ref="model_maya_core_course"/>
+      <field name="group_id" ref="base.group_user"></field>
+      <field name="perm_read">1</field>
+      <field name="perm_create">0</field>
+      <field name="perm_write">0</field>
+      <field name="perm_unlink">0</field>
+    </record>
+
+    <record id="maya_core.course_admin_user_access" model="ir.model.access">
+      <field name="name">Acceso Administrador a los Ciclos</field>
+      <field name="model_id" ref="model_maya_core_course"/>
+      <field name="group_id" ref="maya_core.group_ROOT"/>
+      <field name="perm_read">1</field>
+      <field name="perm_create">1</field>
+      <field name="perm_write">1</field>
+      <field name="perm_unlink">1</field>
+    </record>
+
+    <!-- permisos Departamentos -->
+    <record id="maya_core.departament_general_user_access" model="ir.model.access">
+      <field name="name">Acceso usuario general a los Departamentos</field>
+      <field name="model_id" ref="model_maya_core_departament"/>
+      <field name="group_id" ref="base.group_user"></field>
+      <field name="perm_read">1</field>
+      <field name="perm_create">0</field>
+      <field name="perm_write">0</field>
+      <field name="perm_unlink">0</field>
+    </record>
+
+    <record id="maya_core.departament_admin_user_access" model="ir.model.access">
+      <field name="name">Acceso Administrador a los Departamentos</field>
+      <field name="model_id" ref="model_maya_core_departament"/>
+      <field name="group_id" ref="maya_core.group_ROOT"/>
+      <field name="perm_read">1</field>
+      <field name="perm_create">1</field>
+      <field name="perm_write">1</field>
+      <field name="perm_unlink">1</field>
+    </record>
+  
+  </data>
+</odoo>
