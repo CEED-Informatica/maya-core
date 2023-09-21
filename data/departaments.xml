@@ -28,5 +28,10 @@
     <record model="maya_core.departament" id="maya_core.departament_SCRT">
       <field name="name">Secretaría</field>
     </record>
+
+    <record model="maya_core.departament" id="maya_core.departament_HDQ">
+      <field name="name">Dirección</field>
+    </record>
+
   </data>
 </odoo>
