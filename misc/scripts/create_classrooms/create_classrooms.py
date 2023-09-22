@@ -66,7 +66,7 @@ except Exception as e:
 # autenticación
 uid = common.authenticate(db, username, password, {})
 
-with open(sys.argv[1]) as csv_file:
+with open(args.csv_filename) as csv_file:
   csv_reader = csv.reader(csv_file, delimiter = ',')
   line_count = 0
   for row in csv_reader:
