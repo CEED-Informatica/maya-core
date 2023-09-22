@@ -9,15 +9,17 @@ hero_height: is-fullwidth
 
 ## Configuración Maya | Core
 
+> A lo largo del documento, el prompt **$** indica un comando a introducir en el host, mientras que el prompt **>** indica un comando a introducir en el contenedor. Además, **[PWD_MODULO]** indica el directorio raíz del módulo.
+
 1. [ ] Configurar correo saliente. SMTP
   
       Como _administrador_ acceder en Odoo:
 
          Ajustes / Ajustes generales / Servidores de correo externo / Servidor de correo saliente
 
-      Una configuración habitual puede ser la de usar una cuenta de _gmail_ como servidor de correo saliente. Ver [configurar SMTP gmail]((/maya-core/annex/smtp-gmail)) 
+      Una configuración habitual puede ser la de usar una cuenta de _gmail_ como servidor de correo saliente. Ver [configurar SMTP gmail](/maya-core/annex/smtp-gmail) 
 
-2. [ ] Personalizar la empresa. Por defecto **Maya | Core** se configura con los datos del CEEDCV. Para modificarlos e indicar los datos del centro hay que acceder como _administrador_:
+2. [ ] Personalizar la empresa. Por defecto **Maya | Core** se configura con los datos del CEEDCV. Para modificarlos e indicar los datos del centro hay que acceder como _administrador_ a:
 
          Ajustes / Ajustes generales / Empresas / Actualizar información
 
@@ -29,7 +31,33 @@ hero_height: is-fullwidth
 
     Si el servidor va a estar disponible a través de internet (con un dominio ya asignado), únicamente indicarlo en la ruta anterior.
 
-    > Odoo podría cambiar de manera automática el valor de _web.base.url_ en el caso de que algún cliente realizará el acceso mediante otra url (IP, localhost)
-
+    > Odoo podría cambiar de manera automática el valor de _web.base.url_ en el caso de que algún cliente realizará el acceso mediante otra url (IP, localhost), por lo que una vez configurada la url base todos los usuarios deberían acceder a través de ella.
 
 4. [ ] Creación de usuarios
+
+    Utilizando de plantilla el fichero _[PWD_MODULO]/misc/scripts/users_demo.csv_ añadir todos los usuarios del sistema para posteriormente incorporarlos a **Maya** mediante el script _[PWD_MODULO]/misc/scripts/create_users/create_users.py_
+
+    ```
+    cd [PWD_MODULO]/misc/scripts/create_users/
+    chmod +x create_users.py
+    ./create_users.py -sr USERADMIN -ps PASSADMIN -db NOMDB FICHERO.csv 
+    ```
+    donde: 
+
+      * USERADMIN: usuario administrador.
+      * PASSADMIN: pasword del usuario administrador.
+      * NOMDB: es el nombre de la base de datos. 
+      * FICHERO.csv: fichero con los datos de los usuarios.
+
+    En el caso de estar trabajando con _odoodock_ hay que ejecutar el script desde dentro del contenedor:
+
+    ```
+    $ docker exec -it odoodock-web-1 bash
+    > cd /mnt/extra-addons/misc/scripts/create_users
+    > chmod +x create_users.py
+    > ./create_users.py -sr USERADMIN -ps PASSADMIN -db NOMDB FICHERO.csv 
+    ```
+
+    > El script _create_users.py_ dispone de más opciones que pueden ser consultadas mediante el parámetro _-h_
+
+    > El script detecta si los usuarios ya existen y los mantiene, por lo que puede ser ejecutado multiples veces para añadir a nuevos usuarios.
