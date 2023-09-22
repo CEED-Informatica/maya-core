@@ -161,8 +161,8 @@ for classroom in classrooms:
       classroom_id = classroom_exist['id']
     
     # relación con módulos
-    # if code_blocks[-1] == 'TUT02CF': <- en versiones anteriores de aules se nombraban así
-    if code_blocks[-1] == 'TUT0':  # aula de tutoria común para primero y segundo 
+    if code_blocks[-1] == 'TU02CF' or code_blocks[-1] == 'TU01CF':  # en versiones anteriores de aules se nombraban así
+    # if code_blocks[-1] == 'TUT0':  # aula de tutoria común para primero y segundo 
       link_subject_course_classroom(courses[code_blocks[-2]]['id'], subjects['TUT1']['id'], classroom_id)
       print(f'   \033[0;32m[INFO]\033[0m Asociado {classroom["code"]} con el módulo {subjects["TUT1"]["abbr"]} en {courses[code_blocks[-2]]["abbr"]}')
       link_subject_course_classroom(courses[code_blocks[-2]]['id'], subjects['TUT2']['id'], classroom_id)
