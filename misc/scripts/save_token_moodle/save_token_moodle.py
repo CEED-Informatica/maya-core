@@ -30,7 +30,7 @@ args = parser.parse_args()
 if args.moodle_host == None:
   try:
     with open('moodle_host.txt') as f:
-      moodle_host = list(line for line in f)[0]
+      moodle_host = list(line for line in f)[0].rstrip()
   except FileNotFoundError:
     parser.print_help()
     exit()
