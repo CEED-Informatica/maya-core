@@ -84,6 +84,7 @@ post_data = {'username': moodle_user, 'password': moodle_pass}
 postfields = urlencode(post_data)
 c.setopt(c.POSTFIELDS, postfields)
 c.setopt(c.WRITEDATA, buffer)
+c.setopt(c.FOLLOWLOCATION, True)
 
 c.perform()
 c.close()
