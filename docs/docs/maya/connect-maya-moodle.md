@@ -73,5 +73,7 @@
     > Es muy importante que el código del aula siga las indicaciones comentadas en el apartado 2 del documento de [configuración de Moodle](/maya-core/docs/como-empezar/moodle-config).
 
     > El campo comentario no es procesado por el script
+ 
+    > El script no permite la vinculación de varios módulos en una misma aula. Esos enlaces hay que realizarlos insertando una sola aula en el script para, posteriormente desde Odoo, editar ese aula y añadir todos los módulos (subjects) asociados.
 
 ### Creación de tareas

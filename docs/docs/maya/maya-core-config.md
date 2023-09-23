@@ -19,11 +19,24 @@ hero_height: is-fullwidth
 
       Una configuración habitual puede ser la de usar una cuenta de _gmail_ como servidor de correo saliente. Ver [configurar SMTP gmail](/maya-core/annex/smtp-gmail) 
 
-2. [ ] Personalizar la empresa. Por defecto **Maya | Core** se configura con los datos del CEEDCV. Para modificarlos e indicar los datos del centro hay que acceder como _administrador_ a:
+2. [ ] Personalizar la empresa (el centro). Por defecto **Maya | Core** se configura con los datos del CEEDCV. Para modificarlos e indicar los datos del centro hay que acceder como _administrador_ a:
 
          Ajustes / Ajustes generales / Empresas / Actualizar información
 
-3. [ ] Asignar la url base. 
+3. [ ] Añadir el logo del centro. Como _administrador_ acceder a:
+
+         Ajustes / Ajustes generales / Empresas / Actualizar información / Añadir Logo
+
+      > Es aconsejable que el logo este en formato png con fondo transparente.
+
+
+4. [ ] Modificar el favicon. Como _administrador_ acceder a:
+
+         Ajustes / Ajustes generales / Empresas / Actualizar información / MOdificar favicon
+
+      > Es aconsejable un tamaño de 32x32
+
+5. [ ] Asignar la url base. 
     
     En el caso de que se acceda desde una red local, o se utiliza un DNS local o se modifica el fichero _C:\windows\system32\drivers\etc\host_ (Windows) o _/etc/hosts_ (Linux/MacOS) de **todos** los ordenadores que tienen acceso al servidor para incluir su nombre. Para asignarlo en Odoo, hay que acceder como _administrador_ y en modo _debug_ a:
   
@@ -31,9 +44,9 @@ hero_height: is-fullwidth
 
     Si el servidor va a estar disponible a través de internet (con un dominio ya asignado), únicamente indicarlo en la ruta anterior.
 
-    > Odoo podría cambiar de manera automática el valor de _web.base.url_ en el caso de que algún cliente realizará el acceso mediante otra url (IP, localhost), por lo que una vez configurada la url base todos los usuarios deberían acceder a través de ella.
+    > _Odoo_ podría cambiar de manera automática el valor de _web.base.url_ en el caso de que algún cliente realizará el acceso mediante otra url (IP, localhost), por lo que una vez configurada la url base todos los usuarios deberían acceder a través de ella.
 
-4. [ ] Creación de usuarios
+6. [ ] Creación de usuarios
 
     Utilizando de plantilla el fichero _[PWD_MODULO]/misc/scripts/users_demo.csv_ añadir todos los usuarios del sistema para posteriormente incorporarlos a **Maya** mediante el script _[PWD_MODULO]/misc/scripts/create_users/create_users.py_
 
