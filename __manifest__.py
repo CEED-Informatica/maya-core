@@ -61,7 +61,6 @@
         'data/subjects/common.xml',
         'data/roles/headquarters.xml',
         'data/roles/tutors.xml',
-        'data/roles/validations.xml',
         'data/registered_cron_jobs.xml',
         # reports
         'reports/custom_footer.xml',
