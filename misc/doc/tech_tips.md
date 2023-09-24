@@ -63,6 +63,14 @@ curl https://localhost/webservice/rest/server.php?wstoken=abcdef012345678&wsfunc
 
 > Nota: en el caso de hacer peticiones al moodle de docker utilizar http el nular de https
 
+## Evitar que _git_ tenga en cuenta los cambios de los permisos
+
+Por defecto, _git_ considera que los cambios en un permiso (por ejemplo añadir el permiso de ejecución) en un fichero implica un cambio de estado. Para ignorarlo:
+
+```
+git config core.fileMode false
+```
+
 ## Configuración de GitHub
 
 Es conveniente bloquear la rama _main_ y la rama _dev_ del repo y para que sólo se pueda acceder a ella mediante PR. Además, es conveniente que las ramas creadas para cada tarea se borren de manera automática una vez el PR ha sido aceptado
