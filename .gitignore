@@ -6,3 +6,6 @@
 
 # sass -> css.map 
 *.css.map
+
+# fichero de datos reales
+users_test.csv
