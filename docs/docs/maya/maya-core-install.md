@@ -28,6 +28,7 @@ hero_height: is-fullwidth
 
    ```
    $ docker exec -it odoodock-web-1 bash
+   > cd /mnt/extra-addons/maya_core
    > pip3 install -r requirements-dev.txt
    ```
 

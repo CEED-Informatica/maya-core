@@ -14,6 +14,7 @@
     > cd /mnt/extra-addons/misc/scripts/save_token_moodle
     > nano moodle_host.txt
     ```
+
 2. [ ] Dar permisos de ejecución al script.
 
     ```
@@ -41,13 +42,22 @@
 
     con los parámetros:
 
-    * Usuario: usuario de referencia para que **Maya** lea sus credenciales. Ha de ser el mismo que el que se configura en los ajustes de _Odoo_ como usuario. **Maya** permite que existan varias opciones (varias usuarios) que se conectan a Moodle. Este usuario funciona a modo de clave para saber que usuario de moodle y contraseña se va a utilizar. Es muy habitual que sea _maya_
-    * Usuario _Moodle_: usuario de _Moodle_ que relizará las gestiones. Ver apartado 3 del documento de [configuración de Moodle](/maya-core/docs/requirements/moodle-config). Tiene que tener asignado el rol profesor.
-    * Contraseña del usuario _Moodle_
+      * (1) Usuario: usuario de referencia para que **Maya** lea sus credenciales. Ha de ser el mismo que el que se configura en los ajustes de _Odoo_ como usuario. **Maya** permite que existan varias opciones (varias usuarios) que se conectan a Moodle. Este usuario funciona a modo de clave para saber que usuario de moodle y contraseña se va a utilizar. Es muy habitual que sea _maya_
+      * (2) Usuario _Moodle_: usuario de _Moodle_ que relizará las gestiones. Ver apartado 3 del documento de [configuración de Moodle](/maya-core/docs/requirements/moodle-config). Tiene que tener asignado el rol profesor.
+      * (3) Contraseña del usuario _Moodle_.
+
+
+4. [ ] Configurar la URL y el usuario de acceso a _Moodle_
+  
+      Como _administrador_ acceder en _Odoo_:
+
+         Ajustes / Maya | Core / Moodle 
+         
+      Y asignar como URL la url del servidor de moodle (por ejemplo _https://aules.edu.gva.es/ed_) y como usuario el (1) _Usuario_ indicado en el paso anterior (¡no el usuario Moodle!).
 
 ### Creación de las aulas virtuales
 
-4. [ ]  Utilizando de plantilla el fichero _[PWD_MODULO]/misc/scripts/classromms_demo.csv_ añadir todas las aulas virtuales del sistema para posteriormente incorporarlas a **Maya** mediante el script _[PWD_MODULO]/misc/scripts/create_classrooms/create_classrooms.py_
+4. [ ]  Utilizando de plantilla el fichero _[PWD_MODULO]/misc/scripts/classrooms_demo.csv_ añadir todas las aulas virtuales del sistema para posteriormente incorporarlas a **Maya** mediante el script _[PWD_MODULO]/misc/scripts/create_classrooms/create_classrooms.py_
 
     ```
     cd [PWD_MODULO]/misc/scripts/create_classrooms/
@@ -65,7 +75,7 @@
 
     ```
     $ docker exec -it odoodock-web-1 bash
-    > cd /mnt/extra-addons/misc/scripts/create_classrooms
+    > cd /mnt/extra-addons/maya_core/misc/scripts/create_classrooms
     > chmod +x create_classrooms.py
     > ./create_classrooms.py -sr USERADMIN -ps PASSADMIN -db NOMDB FICHERO.csv 
     ```
