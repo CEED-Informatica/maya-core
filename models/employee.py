@@ -97,10 +97,15 @@ class Employee(models.Model):
     roles_coord_CF = self.env['maya_core.rol'].search([('rol','=','CRDCF')])
 
     if 'roles_ids' in vals:
+      # el simple hecho de que no existan convalidadores si no está el módulo maya_valid instalado
+      # podría valer para que no dieran error. Otra opción es detectar si el módulo está o no instalado
+      # maya_valid_installed = self.env['ir.module.module'].search([('name', '=', 'maya_valid')])
+      # if not maya_valid_installed or maya_valid_installed.state != 'installed':
+      # o algo parecido
       if any([rol.id in vals['roles_ids'][0][2] for rol in roles_validators]): # es validador
-        self.env.ref('maya_core.group_VALID').write({'users': [(4, self.user_id.id, 0)]})
+        self.env.ref('maya_valid.group_VALID').write({'users': [(4, self.user_id.id, 0)]})
       else: # no lo es
-        self.env.ref('maya_core.group_VALID').write({'users': [(3, self.user_id.id, 0)]})
+        self.env.ref('maya_valid.group_VALID').write({'users': [(3, self.user_id.id, 0)]})
 
       if any([rol.id in vals['roles_ids'][0][2] for rol in roles_head_CF]): # es Jefatura de ciclos
         self.env.ref('maya_core.group_MNGT_FP').write({'users': [(4, self.user_id.id, 0)]})
