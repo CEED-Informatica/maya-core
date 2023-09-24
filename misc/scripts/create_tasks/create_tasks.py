@@ -23,7 +23,7 @@ def print_list(list):
 print('\033[1mMaya | create-tasks. v1.1\033[0m')
 
 parser = argparse.ArgumentParser(
-  description = 'Crea en Maya, a partir de un fichero .cvs, las tareas Moodle que se vinculan')
+  description = 'Crea en Maya, a partir de un fichero .csv, las tareas Moodle que se vinculan')
 
 # argumentos
 parser.add_argument('csv_filename', help = 'Fichero csv con los datos: id,key,description,course_abbr,classroom_code ') 
@@ -63,7 +63,7 @@ except Exception as e:
 # autenticación
 uid = common.authenticate(db, username, password, {})
 
-with open(sys.argv[1]) as csv_file:
+with open(args.csv_filename) as csv_file:
   csv_reader = csv.reader(csv_file, delimiter = ',')
   line_count = 0
   for row in csv_reader:
@@ -173,7 +173,7 @@ for task in tasks:
 
 print(f'\033[0;32m[INFO]\033[0m Procesados {line_count_OK} aulas virtuales / Errores: {line_count_ERROR}.')
 
-print(f'\033[0;32m[INFO]\033[0m Tabla de tareas creadas (\033[0;32mO\033[0m)/ por crear (\033[0;31mX\033[0m)')
+print(f'\033[0;32m[INFO]\033[0m Tabla de tareas creadas (\033[0;32mO\033[0m) / por crear (\033[0;31mX\033[0m)')
 
 header_table = '       {:<12}'.format('CICLO')
 for ky in tasks_keys:

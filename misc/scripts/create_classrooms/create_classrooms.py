@@ -36,7 +36,7 @@ parser = argparse.ArgumentParser(
   description = 'Crea aulas virtuales (Maya) desde un csv')
 
 # argumentos
-parser.add_argument('csv_filename', help = 'Fichero csv con los datos: id,code,description,lang') 
+parser.add_argument('csv_filename', help = 'Fichero csv con los datos: id,code,description,lang,comment') 
 parser.add_argument('-u', '--url', default = 'http://localhost', help = 'URL del servidor Odoo. Por defecto: http://localhost')
 parser.add_argument('-p', '--port', default = '8069', help = 'Puerto del servidor Odoo. Por defecto: 8069')
 parser.add_argument('-db', '--database', required = True, help = 'Base de datos. Requerido')
