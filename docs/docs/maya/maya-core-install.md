@@ -9,11 +9,16 @@ hero_height: is-fullwidth
 
 ## Instalación **Maya | Core**
 
-> Se parte de la clonación del módulo en la carpeta donde se ubican las addons, tal y como se explica en configuración de Odoo.
-
 > A lo largo del documento, el prompt **$** indica un comando a introducir en el host, mientras que el prompt **>** indica un comando a introducir en el contenedor.
 
-1. [] Instalar los requerimientos. Desde la carpeta del módulo clonado, _maya_core_, ejecutar:
+1. [ ] Clonar en la carpeta de los _addons_ el repo de **Maya | Core** desde [github](https://github.com/CEED-Informatica/maya_core). 
+     
+     En caso de usar [odooddock](https://aoltra.github.io/odoodock/), la mejor opción es el uso de script _create-module.sh_, opción O2, tal y como se explica [aquí](https://aoltra.github.io/odoodock/docs/modulos/crear-modulos-script).
+
+     > Es posible que al actualizar la lista de aplicaciones desde _Odoo_, **Maya | Core** no aparezca entre ellas. Lo mejor en estos casos es tumbar (_docker compose down_) y volver a levantar los contenedores (_up.sh_)
+ 
+
+2. [] Instalar los requerimientos. Desde la carpeta del módulo clonado, _maya_core_, ejecutar:
 
    ```
    $ pip3 install -r requirements-dev.txt
@@ -26,7 +31,5 @@ hero_height: is-fullwidth
    > pip3 install -r requirements-dev.txt
    ```
 
-  > En caso de realizar una instalación
-
-2. [] Instalar **Maya | Core**
+3. [] Instalar **Maya | Core** desde el menu de _Aplicaciones_ de _Odoo_.
 
