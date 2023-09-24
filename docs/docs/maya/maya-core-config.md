@@ -62,7 +62,7 @@ hero_height: is-fullwidth
       * NOMDB: es el nombre de la base de datos. 
       * FICHERO.csv: fichero con los datos de los usuarios.
 
-    En el caso de estar trabajando con _odoodock_ hay que ejecutar el script desde dentro del contenedor:
+    En el caso de estar trabajando con [odoodock](https://aoltra.github.io/odoodock/) hay que ejecutar el script desde dentro del contenedor:
 
     ```
     $ docker exec -it odoodock-web-1 bash

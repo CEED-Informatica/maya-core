@@ -7,7 +7,7 @@ show_sidebar: false
 hero_height: is-fullwidth
 ---
 
-## Instalación Maya | Core
+## Instalación **Maya | Core**
 
 > Se parte de la clonación del módulo en la carpeta donde se ubican las addons, tal y como se explica en configuración de Odoo.
 

@@ -21,7 +21,7 @@
     chmod +x save_token_moodle.py
     ```
 
-    o, si se trabaja con _odoodock_:
+    o, si se trabaja con [odoodock](https://aoltra.github.io/odoodock/):
 
     ```
     > chmod +x save_token_moodle.py
@@ -33,7 +33,7 @@
     ./save_token_moodle.py
     ```
 
-    o, si se trabaja con _odoodock_:
+    o, si se trabaja con [odoodock](https://aoltra.github.io/odoodock/):
 
     ```
     > ./save_token_moodle.py
@@ -61,7 +61,7 @@
       * NOMDB: es el nombre de la base de datos. 
       * FICHERO.csv: fichero con los datos de las aulas.
 
-    En el caso de estar trabajando con _odoodock_ hay que ejecutar el script desde dentro del contenedor:
+    En el caso de estar trabajando con [odoodock](https://aoltra.github.io/odoodock/) hay que ejecutar el script desde dentro del contenedor:
 
     ```
     $ docker exec -it odoodock-web-1 bash
@@ -75,5 +75,3 @@
     > El campo comentario no es procesado por el script
  
     > El script no permite la vinculación de varios módulos en una misma aula. Esos enlaces hay que realizarlos insertando una sola aula en el script para, posteriormente desde Odoo, editar ese aula y añadir todos los módulos (subjects) asociados.
-
-### Creación de tareas
