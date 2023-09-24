@@ -57,14 +57,15 @@ try:
   print('\033[0;32m[INFO]\033[0m Conectando con',url, ' -> ', db)
   common = xmlrpc.client.ServerProxy('{}/xmlrpc/2/common'.format(url))
   print('\033[0;32m[INFO]\033[0m Odoo server', common.version()['server_version'])
+  
+  # autenticación
+  uid = common.authenticate(db, username, password, {})
+
 except Exception as e:
   print('\033[0;31m[ERROR]\033[0m ' + str(e))
   print('\033[0;31m[ERROR]\033[0m Compruebe que el servidor de Odoo esté arrancado')
   print(f'\033[0;32m[INFO]\033[0m Saliendo...')
   exit()
-
-# autenticación
-uid = common.authenticate(db, username, password, {})
 
 with open(args.csv_filename) as csv_file:
   csv_reader = csv.reader(csv_file, delimiter = ',')
