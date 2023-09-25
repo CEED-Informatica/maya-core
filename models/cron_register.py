@@ -52,7 +52,8 @@ class CronRegister(models.Model):
                                                       unidades de tipo interval_type: today + 2')
   nextcall_hour = fields.Char(required = True, help = 'Hora de la siguiente ejecución (ej: 18:20:50)')
   literal_nextcall_day = fields.Char(compute = '_compute_literal_nextcall_day')
-  doall = fields.Boolean(default = True, help = 'Si el servidor cae, cuado se reinicie lanzará las tareas no ejecutadas')
+  doall = fields.Boolean(default = True, help = 'Si el servidor cae, cuando se reinicie lanzará las tareas no ejecutadas')
+  
 
   _sql_constraints = [ 
     ('unique_key', 'unique(key)', 'El código de la plantilla tiene que ser único.'),
@@ -95,7 +96,9 @@ class CronRegister(models.Model):
   def _set_module(self):
     # TODO comprobar que el módulo sea un módulo de confianza
     self.ensure_one()
-    self.module = self._module
+    # obtenego el módulo del id externo
+    self.module = list(self.get_external_id().values())[0].split('.')[0]
+  
 
   def is_nextcall_day_in_format_iso(self) -> bool: 
     self.ensure_one()

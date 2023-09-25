@@ -3,6 +3,9 @@
 import datetime
 from odoo import api, models, fields, _
 from odoo.exceptions import ValidationError, AccessDenied
+
+from ...maya_core.support.maya_logger.exceptions import MayaException
+
 from datetime import date
 import toolz
 import logging
@@ -954,6 +957,10 @@ class SchoolYear(models.Model):
       for subject in distinct_subject_tut:   
         classroom_id = subject.get_classroom_by_course_id(course)
 
+        if classroom_id.moodle_id == 0:
+          _logger.error(f'No hay definida en Maya un aula virtual de tutoria para {course.name}')
+          continue
+  
         job_data = CronJobData(classroom_id.moodle_id, course.id, subject.id)
 
         ## MATRICULA 
@@ -1424,7 +1431,7 @@ class SchoolYear(models.Model):
     task_data['doall'] = bool(cron_template.doall)
     task_data['numbercall'] = cron_template.numbercall
      
-    task_data['model_id'] = self.env.ref(f'maya_core.model_maya_core_{cron_template.model}').ids[0]
+    task_data['model_id'] = self.env.ref(f'{cron_template.module}.model_{cron_template.module}_{cron_template.model}').ids[0]
     
     if cron_template.is_nextcall_day_in_format_iso():
       task_data['nextcall'] = cron_template['nextcall_day'] + cron_template['nextcall_hour']
