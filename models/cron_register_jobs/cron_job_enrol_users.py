@@ -12,7 +12,8 @@ _logger = logging.getLogger(__name__)
 class CronJobEnrolUsers(models.TransientModel):
   _name = 'maya_core.cron_job_enrol_users'
   
-  def _enrol_student(self, user, subject_id, course_id):
+  @staticmethod
+  def enrol_student(self, user, subject_id, course_id):
     """
     Matricula a un usuario maya en un módulo
     Si no existe el usuario, lo crea
@@ -38,13 +39,13 @@ class CronJobEnrolUsers(models.TransientModel):
       _logger.info('El estudiante moodle_id:{} ya existe en Maya'.format(user.id_))
       new_student = student[0]
 
-    enrolled = new_student.subjects_ids.filtered(lambda r: r.id == subject_id)
+    enrolled = new_student.subjects_ids.filtered(lambda r: r.subject_id.id == subject_id)
 
     if len(enrolled) == 0:
       # No está matriculado en ese módulo, se matricula
       # el 4 añade una relación entre el record y el record relacionado (subject_id)
       # Al menos en la versión 13, en relaciones M2M con tabla intermedia personalizada no crea el registro
-      # así que se crea de manera manual
+      # así que se crea de manera manual 
       self.env['maya_core.subject_student_rel'].create({
         'student_id': new_student.id,
         'subject_id': subject_id,
@@ -52,7 +53,7 @@ class CronJobEnrolUsers(models.TransientModel):
       })
 
       # y luego se vincula
-      new_student.subjects_ids = [ (4, subject_id, 0 )] 
+      #new_student.subjects_ids = [ (4, subject_id, 0 )] 
       _logger.info("Estudiante moodle_id:{} no matriculado en el módulo_maya_id: {} -> Matriculando".format(user.id_,course_id))
     else:
       _logger.info("Alumno moodle_id:{} ya estaba matriculado en el módulo_maya_id: {}".format(user.id_, course_id))
@@ -86,7 +87,7 @@ class CronJobEnrolUsers(models.TransientModel):
     
     try:
       conn = MayaMoodleConnection( 
-        moodle_user = self.env['ir.config_parameter'].get_param('maya_core.moodle_user'), 
+        user = self.env['ir.config_parameter'].get_param('maya_core.moodle_user'), 
         moodle_host = self.env['ir.config_parameter'].get_param('maya_core.moodle_url')) 
     except Exception:
       raise Exception('No es posible realizar la conexión con Moodle')
@@ -95,6 +96,7 @@ class CronJobEnrolUsers(models.TransientModel):
     users = MayaMoodleUsers.from_course(conn, classroom_id, only_students = True)
 
     for user in users:
-      self._enrol_student(user, subject_id, course_id)
+      CronJobEnrolUsers.enrol_student(self, user, subject_id, course_id)
+      #self.enrol_student(user, subject_id, course_id)
 
     

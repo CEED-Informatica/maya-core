@@ -31,7 +31,7 @@ class MayaMoodleConnection(MoodleConnection):
       raise Exception('No se encuentra el fichero .maya_moodleteacher. Utiliza el script save_token_moodle para generarlo.')
   
     if user not in users_tokens:
-      raise Exception('El usuario {} no se encuentra en el fichero .maya_moodleteacher. Utiliza el script save_token_moodle para añadirlo.'.format(moodle_user))
+      raise Exception('El usuario {} no se encuentra en el fichero .maya_moodleteacher. Utiliza el script save_token_moodle para añadirlo.'.format(user))
   
 
     super().__init__(moodle_host,  str(users_tokens[user]), is_fake = False)
