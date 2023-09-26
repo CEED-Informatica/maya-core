@@ -44,6 +44,7 @@
         # seguridad
         'security/security_groups.xml',
         'security/core_access.xml',
+        'security/cron_access.xml',
         'security/ir.model.access.csv',
         # vistas
         'views/views.xml',
