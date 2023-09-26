@@ -24,11 +24,12 @@ class Student(models.Model):
   # un estudiante podría solicitar convalidaciones de dos ciclos diferentes 
   # (aunque a día de hoy no está permitido)
   """ validations_ids = fields.One2many('maya_core.validation', 'student_id')"""
-  subjects_ids = fields.Many2many('maya_core.subject',
+  """ subjects_ids = fields.Many2many('maya_core.subject',
     string = 'Módulos',
     relation = 'maya_core_subject_student_rel', 
-    column1 = 'student_id', column2 = 'subject_id')
+    column1 = 'student_id', column2 = 'subject_id') """
+  subjects_ids = fields.One2many('maya_core.subject_student_rel', 'student_id')
   
   def _compute_full_student_info(self):
     for record in self:
-      record.employee_info = record.surname + ', ' + record.name
+      record.student_info = record.surname + ', ' + record.name

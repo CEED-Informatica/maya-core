@@ -18,12 +18,14 @@ class Subject(models.Model):
   # Aulas virtuales asigndas a este módulo
   classrooms_ids = fields.One2many('maya_core.subject_classroom_rel', 'subject_id', string = 'Aulas virtuales')
 
-  students_ids = fields.Many2many(
+  """ students_ids = fields.Many2many(
     'maya_core.student', 
     string = 'Estudiante',
     # ojo! la definición de la tabla lleva incluído el npmbre del módulo separado por _
     relation = 'maya_core_subject_student_rel', 
-    column1 = 'subject_id', column2 = 'student_id')
+    column1 = 'subject_id', column2 = 'student_id') """
+  
+  students_ids = fields.One2many('maya_core.subject_student_rel', 'subject_id', string = 'Estudiantes')
   
   def get_classroom_by_course_id(self, course):
     """
