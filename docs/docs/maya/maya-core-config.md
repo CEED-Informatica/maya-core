@@ -38,7 +38,7 @@ hero_height: is-fullwidth
 
 5. [ ] Asignar la url base. 
     
-    En el caso de que se acceda desde una red local, o se utiliza un DNS local o se modifica el fichero _C:\windows\system32\drivers\etc\host_ (Windows) o _/etc/hosts_ (Linux/MacOS) de **todos** los ordenadores que tienen acceso al servidor para incluir su nombre. Para asignarlo en Odoo, hay que acceder como _administrador_ y en modo _debug_ a:
+    En el caso de que se acceda desde una red local, o se utiliza un DNS local o se modifica el fichero _C:\windows\system32\drivers\etc\host_ (Windows) o _/etc/hosts_ (Linux/MacOS) de **todos** los ordenadores que tienen acceso al servidor para incluir su nombre. Para asignarlo en _Odoo_, hay que acceder como _administrador_ y en modo _debug_ a:
   
          Ajustes / Técnicos / Parámetros / Parámetros de sistema / web.base.url
 
@@ -46,7 +46,15 @@ hero_height: is-fullwidth
 
     > _Odoo_ podría cambiar de manera automática el valor de _web.base.url_ en el caso de que algún cliente realizará el acceso mediante otra url (IP, localhost), por lo que una vez configurada la url base todos los usuarios deberían acceder a través de ella.
 
-6. [ ] Creación de usuarios
+6. [ ] Asignar la url de los informes. 
+
+      Como _administrador_ y en modo _debug_ acceder a:
+
+         Ajustes / Técnicos / Parámetros / Parámetros de sistema 
+
+      Crear un nuevo parámetro llamado _report.url_ y asignarle el valor _http://0.0.0.0:8069_
+
+7. [ ] Creación de usuarios
 
     Utilizando de plantilla el fichero _[PWD_MODULO]/misc/scripts/users_demo.csv_ añadir todos los usuarios del sistema para posteriormente incorporarlos a **Maya** mediante el script _[PWD_MODULO]/misc/scripts/create_users/create_users.py_
 
