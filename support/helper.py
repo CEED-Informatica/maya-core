@@ -59,3 +59,16 @@ def create_HTML_list_from_list(data_list, intro = '') -> str:
 
     return html_list
 
+def split_list(a: list, n: int) -> list:
+    """
+    Divide una lista de n listas a partir de la lista a
+    Basado en: https://stackoverflow.com/a/2135920
+    """
+    if n<=0:
+        return a
+    
+    n = min(n, len(a))
+    k, m = divmod(len(a), n)
+    return (a[i*k+min(i, m):(i+1)*k+min(i+1, m)] for i in range(n))
+
+

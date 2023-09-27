@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 
 from moodleteacher.courses import MoodleCourse
-#from moodleteacher.requests import MoodleRequest
 from .maya_moodle_request import MayaMoodleRequest
 from moodleteacher.assignments import MoodleAssignment
 from .maya_moodle_submission import MayaMoodleSubmission
+
+from ..helper import split_list
 
 import logging
 logger = logging.getLogger('moodleteacher')
@@ -76,21 +77,34 @@ class MayaMoodleAssignment(MoodleAssignment):
     Modifica la fecha de entrega de una tarea (assignment) por usuario, sin que haga falta 
     que el usuario haya entregado algo (submission)
     """
+    # por defecto la longitud máxima de la URL suele ser 8190 caracteres. El prefijo suele 
+    # ocupar alrededor de 200 mientras que cada usuario son alrededor de 50 
+    # Eso implica que se admite alrededor de 159 usuarios por envio -> tomamos como valor de referencia 150
+    # si lo sobrepasa realizamos dos peticiones
+    # es no nos da un máximo de 300 alumnos por aula
 
-    params = {'assignmentid': self.id_}
-    num_user = 0
+    if len(users) > 150:
+      users_split = split_list(users, 2)
+    else:
+      users_split = [users]
 
-    for u,d in users:
-      params['userids['+ str(num_user) + ']'] = u
-      params['dates['+ str(num_user) + ']'] = d
-      num_user += 1 
+    for users_sublist in users_split:
 
-    if len(users) > 0:
-      try:
-        response = MayaMoodleRequest(
-          self.conn, 'mod_assign_save_user_extensions').post(params).json()
-      except Exception as e:
-        logger.error("Error en [set_extension_due_date]: " + str(e))
+      params = {'assignmentid': self.id_}
+      num_user = 0
+
+      for u,d in users_sublist:
+        params['userids['+ str(num_user) + ']'] = u
+        params['dates['+ str(num_user) + ']'] = d
+        num_user += 1 
+
+      if len(users_sublist) > 0:
+        try:
+          response = MayaMoodleRequest(
+            self.conn, 'mod_assign_save_user_extensions').post(params).json()
+        except Exception as e:
+          logger.error("Error en [set_extension_due_date]: " + str(e))
+    
   
 
 class MayaMoodleAssignments(list):
