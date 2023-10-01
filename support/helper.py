@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
-import subprocess
-import re
+# import subprocess
+# import re
+
+import fitz
+from math  import isclose
 
 import logging
 _logger = logging.getLogger(__name__)
@@ -27,11 +30,12 @@ def unset_flag(value, option):
     """
     return value | ~(1 << option) 
 
-def get_data_from_pdf(pdf_file):
+def get_data_from_pdf(pdf_file: str, template: list):
     """
     Obtiene información de los formularios de un pdf
     """
-    # Ejecutar pdftk y capturar la salida
+    
+    """ # Ejecutar pdftk y capturar la salida
     pdftk_command = ['pdftk', pdf_file, 'dump_data_fields_utf8']
     output = subprocess.run(pdftk_command, capture_output = True, text = True, check = True)
 
@@ -42,7 +46,61 @@ def get_data_from_pdf(pdf_file):
     fields = {}
 
     for match in field_regex.finditer(output.stdout):
-      fields[match.group(2)] = (match.group(4).strip(), match.group(1)) 
+      fields[match.group(2)] = (match.group(4).strip(), match.group(1))  """
+    
+    def inttype2string(int_type: int) -> str:
+        """
+        Devuelve el tipo del field de un pdf en formato string a partir del entero
+        """
+        return {
+            7: 'Text',
+            6: 'Signature',
+            3: 'Choice',
+            2: 'Button',
+        }.get(int_type)
+    
+    fields = {}
+
+    # inicializo con los valores por defecto
+    for field in template:
+      fields[field[0]] = (field[4], inttype2string(field[3]))
+
+    doc = fitz.open(pdf_file, filetype="pdf")
+      
+    for page in doc:
+        
+      fields_found = False  
+        
+      # se intenta leer los fields del formulario
+      for field in page.widgets():
+         
+        if field.field_name == template[0][0]: # hack para ir elegir un método u otro
+          fields_found = True
+        
+        fields[field.field_name] = (field.field_value, inttype2string(field.field_type))
+        
+      # hay fields en el pdf. no hace falta que intente obtenerlos por texto
+      if fields_found:
+        continue
+        
+
+      file_dict = page.get_text('dict')  # Obtengo un diccionario con los datos de la página
+      blocks_info = file_dict['blocks'] # me quedo sólo la lista de los bloques
+    
+      for block in blocks_info:   # cada block es un diccionario   
+        if block['type'] != 0: # solo bloques de texto
+          continue
+      
+        for line in block['lines']:
+          # print(line)  # descomentar para investigar las areas
+          for span in line['spans']:
+            for field in template:
+              x0, y0 = span['origin']            
+              if isclose(x0, field[1], abs_tol = 2) and isclose(y0, field[2], abs_tol = 2) :            
+                if field[3] == 2:
+                  fields[field[0]] = ('Yes', inttype2string(field[3]))
+                else:
+                  fields[field[0]] = (span['text'], inttype2string(field[3]))
         
     return fields
  

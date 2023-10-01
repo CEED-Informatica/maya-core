@@ -4,3 +4,4 @@
 toolz
 pycurl
 moodleteacher
+PyMuPDF
