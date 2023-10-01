@@ -82,14 +82,6 @@
       <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_ADI')])]"/>  
     </record>
 	
-    <record model="maya_core.subject" id="maya_core.subject_ADI_SLE">
-      <field name="abbr">SLE</field>
-      <field name="code">0180</field>
-      <field name="name">Segunda lengua extranjera</field>
-      <field name="year">2</field>
-      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_ADI')])]"/>  
-    </record>
-	
     <record model="maya_core.subject" id="maya_core.subject_ADI_PRY">
       <field name="abbr">PRY</field>
       <field name="code">0667</field>

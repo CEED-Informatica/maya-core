@@ -108,7 +108,7 @@
 
     <record model="maya_core.subject" id="maya_core.subject_GAT_PRY">
       <field name="abbr">PRY</field>
-      <field name="code">0483</field>
+      <field name="code">0181</field>
       <field name="name">Proyecto de gestión de alojamientos turísticos</field>
       <field name="year">2</field>
       <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GAT')])]"/>                            
