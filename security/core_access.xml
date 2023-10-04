@@ -66,6 +66,132 @@
       <field name="perm_write">1</field>
       <field name="perm_unlink">1</field>
     </record>
+
+    <!-- permisos Cargos -->
+    <record id="maya_core.rol_general_user_access" model="ir.model.access">
+      <field name="name">Acceso usuario general a los Cargos (rol)</field>
+      <field name="model_id" ref="model_maya_core_rol"/>
+      <field name="group_id" ref="base.group_user"></field>
+      <field name="perm_read">1</field>
+      <field name="perm_create">0</field>
+      <field name="perm_write">0</field>
+      <field name="perm_unlink">0</field>
+    </record>
+
+    <record id="maya_core.rol_admin_user_access" model="ir.model.access">
+      <field name="name">Acceso Administrador a los Cargos (rol)</field>
+      <field name="model_id" ref="model_maya_core_rol"/>
+      <field name="group_id" ref="maya_core.group_ROOT"/>
+      <field name="perm_read">1</field>
+      <field name="perm_create">1</field>
+      <field name="perm_write">1</field>
+      <field name="perm_unlink">1</field>
+    </record>
+
+    <!-- permisos Estudiantes -->
+    <record id="maya_core.student_general_user_access" model="ir.model.access">
+      <field name="name">Acceso usuario general a los Estudiantes (student)</field>
+      <field name="model_id" ref="model_maya_core_student"/>
+      <field name="group_id" ref="base.group_user"></field>
+      <field name="perm_read">1</field>
+      <field name="perm_create">0</field>
+      <field name="perm_write">0</field>
+      <field name="perm_unlink">0</field>
+    </record>
+
+    <record id="maya_core.student_admin_user_access" model="ir.model.access">
+      <field name="name">Acceso Administrador a los Estudiantes (student)</field>
+      <field name="model_id" ref="model_maya_core_student"/>
+      <field name="group_id" ref="maya_core.group_ROOT"/>
+      <field name="perm_read">1</field>
+      <field name="perm_create">1</field>
+      <field name="perm_write">1</field>
+      <field name="perm_unlink">1</field>
+    </record>
+
+    <!-- permisos Aulas Moodle -->
+    <record id="maya_core.classroom_general_user_access" model="ir.model.access">
+      <field name="name">Acceso usuario general a las Aulas moodle (classroom)</field>
+      <field name="model_id" ref="model_maya_core_classroom"/>
+      <field name="group_id" ref="base.group_user"></field>
+      <field name="perm_read">1</field>
+      <field name="perm_create">0</field>
+      <field name="perm_write">0</field>
+      <field name="perm_unlink">0</field>
+    </record>
+
+    <record id="maya_core.classroom_admin_user_access" model="ir.model.access">
+      <field name="name">Acceso Administrador a las Aulas Moodle (classroom)</field>
+      <field name="model_id" ref="model_maya_core_classroom"/>
+      <field name="group_id" ref="maya_core.group_ROOT"/>
+      <field name="perm_read">1</field>
+      <field name="perm_create">1</field>
+      <field name="perm_write">1</field>
+      <field name="perm_unlink">1</field>
+    </record>
+
+    <!-- permisos Curso escolar -->
+    <record id="maya_core.school_year_general_user_access" model="ir.model.access">
+      <field name="name">Acceso usuario general al Curso Escolar (school_year)</field>
+      <field name="model_id" ref="model_maya_core_school_year"/>
+      <field name="group_id" ref="base.group_user"></field>
+      <field name="perm_read">1</field>
+      <field name="perm_create">0</field>
+      <field name="perm_write">0</field>
+      <field name="perm_unlink">0</field>
+    </record>
+
+    <record id="maya_core.school_year_admin_user_access" model="ir.model.access">
+      <field name="name">Acceso Administrador al Curso Escolar (school_year)</field>
+      <field name="model_id" ref="model_maya_core_school_year"/>
+      <field name="group_id" ref="maya_core.group_ROOT"/>
+      <field name="perm_read">1</field>
+      <field name="perm_create">1</field>
+      <field name="perm_write">1</field>
+      <field name="perm_unlink">1</field>
+    </record>
+
+    <!-- permisos Tareas Moodle -->
+    <record id="maya_core.task_moodle_general_user_access" model="ir.model.access">
+      <field name="name">Acceso usuario general a las Tareas moodle (task_moodle)</field>
+      <field name="model_id" ref="model_maya_core_task_moodle"/>
+      <field name="group_id" ref="base.group_user"></field>
+      <field name="perm_read">0</field>
+      <field name="perm_create">0</field>
+      <field name="perm_write">0</field>
+      <field name="perm_unlink">0</field>
+    </record>
+
+    <record id="maya_core.task_moodle_admin_user_access" model="ir.model.access">
+      <field name="name">Acceso Administrador a las Task Moodle (task_moodle)</field>
+      <field name="model_id" ref="model_maya_core_task_moodle"/>
+      <field name="group_id" ref="maya_core.group_ROOT"/>
+      <field name="perm_read">1</field>
+      <field name="perm_create">1</field>
+      <field name="perm_write">1</field>
+      <field name="perm_unlink">1</field>
+    </record>
+
+    <!-- permisos REgistro de Cron -->
+    <record id="maya_core.cron_register_general_user_access" model="ir.model.access">
+      <field name="name">Acceso usuario general al Registro de plantillas Cron (cron_register)</field>
+      <field name="model_id" ref="model_maya_core_cron_register"/>
+      <field name="group_id" ref="base.group_user"></field>
+      <field name="perm_read">0</field>
+      <field name="perm_create">0</field>
+      <field name="perm_write">0</field>
+      <field name="perm_unlink">0</field>
+    </record>
+
+    <record id="maya_core.cron_register_admin_user_access" model="ir.model.access">
+      <field name="name">Acceso Administrador al Registro de plantillas Cron (cron_register)</field>
+      <field name="model_id" ref="model_maya_core_cron_register"/>
+      <field name="group_id" ref="maya_core.group_ROOT"/>
+      <field name="perm_read">1</field>
+      <field name="perm_create">1</field>
+      <field name="perm_write">1</field>
+      <field name="perm_unlink">1</field>
+    </record>
   
   </data>
 </odoo>
