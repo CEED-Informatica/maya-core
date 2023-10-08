@@ -152,6 +152,10 @@
               string="Convertir en borrador" class="oe_highlight"
               attrs="{'invisible': ['|', ('state','=', '0'), ('state','=', '1')] }"
               type="object"/>
+            <!-- con la clase oe_edit_only solo  muestra el botón cuando edito el elemento -->
+            <button name="create_task_action" icon="fa-cog" 
+              string="Regenerar tareas cron" class="oe_edit_only oe_highlight"
+              type="object"/>
             <field name="state" widget="statusbar" statusbar_visible="0,1,2"/>
           </header>
           <group col='2'>
