@@ -95,9 +95,9 @@ class CronRegister(models.Model):
   @api.depends('key')
   def _set_module(self):
     # TODO comprobar que el módulo sea un módulo de confianza
-    self.ensure_one()
-    # obtenego el módulo del id externo
-    self.module = list(self.get_external_id().values())[0].split('.')[0]
+    for record in self:
+      # obtenego el módulo del id externo
+      record.module = list(record.get_external_id().values())[0].split('.')[0]
   
 
   def is_nextcall_day_in_format_iso(self) -> bool: 

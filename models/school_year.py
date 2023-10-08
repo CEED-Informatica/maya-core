@@ -982,6 +982,15 @@ class SchoolYear(models.Model):
 
         cron_ids.append(task)
 
+        ## NOTIFICACIONES ALUMNADO
+        cron_template = self.env['maya_core.cron_register'].search([('key', '=', 'NOTV')])
+        task_name = 'Notifica estado convalidaciones {} desde Aules {}'.format(course.abbr, 
+              '/{}'.format(subject.year) if len(list(distinct_subject_tut)) > 1 else '')
+        task_data = self.cron_template2task(cron_template, task_name, str(job_data))
+        task = (0, 0, task_data)
+
+        cron_ids.append(task)
+
 
     # añade nuevos registro, pero los mantiene en "el aire" hasta que se grabe el school_year 
     self.cron_ids = cron_ids
@@ -1014,49 +1023,7 @@ class SchoolYear(models.Model):
         distinct_subject_tut = [subject for subject in list(toolz.unique(tut_subjects, key = lambda x: x.get_classroom_by_course_id(course)))]
     
         for subject in distinct_subject_tut:   
-          classroom_id = subject.get_classroom_by_course_id(course)
-
-          ## MATRICULA 
-          task = (0, 0, {
-            'model_id': record.env.ref('maya_core.model_maya_core_classroom'),
-            'name': 'Matricula alumnos de {} en Maya {}'.format(course.abbr, 
-              '/{}'.format(subject.year) if len(list(distinct_subject_tut)) > 1 else ''),
-            'active': True,
-            'interval_number': 1,
-            'interval_type': 'days',
-            'numbercall': 60,     # número de veces que será ejecutada la tarea
-            'doall': 1,           # si el servidor cae, cuado se reinicie lanzar las tareas no ejecutadas
-            'nextcall': '2023-03-02 00:27:59',
-            'state': 'code',
-            'code': 'model.cron_enrol_students({}, {}, {})'
-              .format(classroom_id.moodle_id,
-                subject.id,
-                course.id,
-                subject.id),
-          }) 
-      
-          cron_ids.append(task)
-
-          ## CONVALIDACIONES     
-          task = (0, 0, {
-            'model_id': record.env.ref('maya_core.model_maya_core_classroom'),
-            'name': 'Descarga datos convalidaciones {} desde Aules {}'.format(course.abbr, 
-              '/{}'.format(subject.year) if len(list(distinct_subject_tut)) > 1 else ''),
-            'active': True,
-            'interval_number': 1,
-            'interval_type': 'days',
-            'numbercall': 60,     # número de veces que será ejecutada la tarea
-            'doall': 1,           # si el servidor cae, cuado se reinicie lanzar las tareas no ejecutadas
-            'nextcall': '2023-03-02 00:27:59',
-            'state': 'code',
-            'code': 'model.cron_download_validations({}, {}, {}, {})'
-              .format(classroom_id.moodle_id,
-                subject.id,
-                classroom_id.get_task_id_by_key('validation'),
-                course.id),
-          }) 
-
-          cron_ids.append(task)
+          classroom_id = subject.get_classroom_by_course_id(course)  
       
           ## NOTIFICACIONES ALUMNADO
           task = (0, 0, {
@@ -1416,6 +1383,12 @@ class SchoolYear(models.Model):
 
       self.dates[holiday.description] = holiday_dto
       self.dates[holiday.description] = holiday_end_dto
+
+  def create_task_action(self):
+    """
+    Lanza la función de regeneración de tareas
+    """
+    self._calculate_task()
 
   def cron_template2task(self, cron_template, task_name, job_data):
     task_data =  {}
