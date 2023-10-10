@@ -1,8 +1,8 @@
 <odoo>
   <data>
     <!-- ************************************************************************* -->
-    <!-- permisos sobre el modelo que implementa la tarea de descargar convalidaciones 
-         (maya_valid.cron_job_download_validations) -->
+    <!-- permisos sobre el modelo que implementa la tarea de matricular alumnos 
+         (maya_core.cron_job_enrol_users) -->
     <!-- ************************************************************************* -->
 
     <!-- permisos administradores del sistema -->
