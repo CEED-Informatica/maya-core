@@ -106,13 +106,16 @@ def get_data_from_pdf(pdf_file: str, template: list):
         
     return fields
  
-def create_HTML_list_from_list(data_list, intro = '') -> str:
+def create_HTML_list_from_list(data_list, intro = '', ident = True) -> str:
     """
     Genera una lista HMTL a partir de un list 
     """ 
     html_list = ''
+    padding_left = '3rem'
+    if not ident:
+       padding_left = '0rem'
 
-    html_list = f'<p style="padding-left: 3rem">{intro}</p><ul style="margin-left: 3rem">'
+    html_list = f'<p style="padding-left: {padding_left}">{intro}</p><ul style="margin-left: 3rem">'
     for mf in data_list:
       html_list += f'<li>{mf}'  
     html_list += '</ul>'
