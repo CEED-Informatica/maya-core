@@ -158,6 +158,9 @@ class SchoolYear(models.Model):
 
   """ Sobreescritura de la función write que es llamada cuando se actualiza un registro """
   def write(self, vals):
+    if not self.env.user.has_group('atenea.group_ROOT'):
+       raise AccessDenied(_('Sólo el administrador puede editar un curso'))
+
     ref = self.env.ref
     # Si alguno de los valores que se han cambiado están en la lista de cambios que afectan al calendario
     # y el curso está 'en curso'
@@ -1424,3 +1427,16 @@ class SchoolYear(models.Model):
       task_data['nextcall'] = str(calldate) + ' ' + cron_template.nextcall_hour
 
     return task_data
+  
+  def action_server_show_current_course(self):
+    """
+    Se ejecuta como una acción del servidor que lo que hace 
+    es devolver un accion de window asignando res_id el identificador del curso actual
+    """
+    course = self.env['maya_core.school_year'].sudo().search([('state', '=', '1')])
+    return {
+      "type" : "ir.actions.act_window",
+      "res_model" : "maya_core.school_year",
+      "view_mode": "form", 
+      "res_id": course.id if course.id else False
+    }
