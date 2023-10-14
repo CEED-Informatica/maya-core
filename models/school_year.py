@@ -158,7 +158,7 @@ class SchoolYear(models.Model):
 
   """ Sobreescritura de la función write que es llamada cuando se actualiza un registro """
   def write(self, vals):
-    if not self.env.user.has_group('atenea.group_ROOT'):
+    if not self.env.user.has_group('maya_core.group_ROOT'):
        raise AccessDenied(_('Sólo el administrador puede editar un curso'))
 
     ref = self.env.ref
@@ -942,7 +942,22 @@ class SchoolYear(models.Model):
     cron_ids = []
 
     self.cron_ids = [(5, 0 ,0)]
-  
+
+    # creación de cron jobs para todos los ciclos de manera simultánea
+    cron_templates_all_courses_simultaneously = ['CHDL']
+
+    for template in cron_templates_all_courses_simultaneously:
+      cron_template = self.env['maya_core.cron_register'].search([('key', '=', template)])
+      if len(cron_template.ids) == 0 or len(cron_template.ids) > 1:
+        _logger.error(f'No se encuentra ningún cron_register o hay más de uno con la key {template}')
+        continue
+
+      task_name = f'{cron_template.name}'
+      task_data = self.cron_template2task(cron_template, task_name, None)
+      task = (0, 0, task_data)
+      cron_ids.append(task)  
+
+    # creación de cron jobs para los ciclos de manera independiente
     for course in courses:
       # módulos de tutoria
       _logger.info(course.subjects_ids)
@@ -1403,7 +1418,10 @@ class SchoolYear(models.Model):
     task_data['state'] = cron_template.state
     task_data['interval_number'] = cron_template.interval_number
     task_data['interval_type'] = cron_template.interval_type
-    task_data['code'] = 'model.{}({})'.format(cron_template.code, job_data)
+    if job_data == None:
+      task_data['code'] = 'model.{}()'.format(cron_template.code)
+    else:
+      task_data['code'] = 'model.{}({})'.format(cron_template.code, job_data)
     task_data['doall'] = bool(cron_template.doall)
     task_data['numbercall'] = cron_template.numbercall
      
