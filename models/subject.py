@@ -27,6 +27,8 @@ class Subject(models.Model):
   
   students_ids = fields.One2many('maya_core.subject_student_rel', 'subject_id', string = 'Estudiantes')
   
+  employees_ids = fields.One2many('maya_core.subject_employee_rel', 'subject_id', string = 'Profesores')
+  
   def get_classroom_by_course_id(self, course):
     """
     Devuelve el aula virtual asociada a este módulo para un ciclo determinado

@@ -47,6 +47,8 @@ class Employee(models.Model):
   roles_ids = fields.Many2many('maya_core.rol', string = 'Cargos')
   
   active = fields.Boolean('Activo', related='user_id.active', help = 'Indica si el usuario maya_core asociado está activo')
+  
+  subjects_ids = fields.One2many('maya_core.subject_employee_rel', 'employee_id', string = 'Módulos')
 
   @api.depends('user_ids')
   def _compute_user_id(self):
