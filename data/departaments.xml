@@ -25,6 +25,18 @@
       <field name="name">Formación y Orientación Laboral</field>
     </record>
 
+    <record model="maya_core.departament" id="maya_core.departament_INGLES">
+      <field name="name">Inglés</field>
+    </record>
+
+    <record model="maya_core.departament" id="maya_core.departament_FRANCES">
+      <field name="name">Francés</field>
+    </record>
+
+    <record model="maya_core.departament" id="maya_core.departament_ALEMAN">
+      <field name="name">Alemán</field>
+    </record>
+
     <record model="maya_core.departament" id="maya_core.departament_SCRT">
       <field name="name">Secretaría</field>
     </record>
