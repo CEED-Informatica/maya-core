@@ -123,10 +123,10 @@
       <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GEVEC')])]"/>                      
     </record>
 	
-    <record model="maya_core.subject" id="maya_core.subject_GEVEC_PM">
+    <record model="maya_core.subject" id="maya_core.subject_GEVEC_MD">
       <field name="abbr">PM</field>
       <field name="code">0931</field>
-      <field name="name">Políticas de marketing</field>
+      <field name="name">Marketing digital</field>
       <field name="year">1</field>
       <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_GEVEC')])]"/>                      
     </record>
