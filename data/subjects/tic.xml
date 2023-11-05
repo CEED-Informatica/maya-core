@@ -119,7 +119,7 @@
       <field name="code">0491</field>
       <field name="name">Sistemas de gestión empresarial</field>
       <field name="year">2</field>
-      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_DAW')])]"/>                            
+      <field name="courses_ids" eval="[(6, 0, [ref('maya_core.course_DAM')])]"/>                            
     </record>
 
     <!-- Módulos ASIR -->
