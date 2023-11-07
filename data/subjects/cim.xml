@@ -2,7 +2,7 @@
   <data>
     <!-- Módulos TIL -->
     <record model="maya_core.subject" id="maya_core.subject_TIL_FOL">
-      <field name="abbr">LAP</field>
+      <field name="abbr">FOL</field>
       <field name="code">0631</field>
       <field name="name">Formación y orientación laboral</field>
       <field name="year">1</field>
@@ -148,7 +148,7 @@
     </record>
 	
     <record model="maya_core.subject" id="maya_core.subject_GEVEC_ADE">
-      <field name="abbr">LAP</field>
+      <field name="abbr">EDEC</field>
       <field name="code">0926</field>
       <field name="name">Escaparatismo y diseño de espacios comerciales</field>
       <field name="year">2</field>
