@@ -109,12 +109,8 @@ class Employee(models.Model):
       else: # no lo es
         self.env.ref('maya_valid.group_VALID').write({'users': [(3, self.user_id.id, 0)]})
 
-      if any([rol.id in vals['roles_ids'][0][2] for rol in roles_head_CF]): # es Jefatura de ciclos
-        self.env.ref('maya_core.group_MNGT_FP').write({'users': [(4, self.user_id.id, 0)]})
-      else: # no lo es
-        self.env.ref('maya_core.group_MNGT_FP').write({'users': [(3, self.user_id.id, 0)]})
-
-      if any([rol.id in vals['roles_ids'][0][2] for rol in roles_coord_CF]): # es coord ciclos
+      if any([rol.id in vals['roles_ids'][0][2] for rol in roles_head_CF]) or \
+         any([rol.id in vals['roles_ids'][0][2] for rol in roles_coord_CF]):  # es Jefatura de ciclos o coord ciclos
         self.env.ref('maya_core.group_MNGT_FP').write({'users': [(4, self.user_id.id, 0)]})
       else: # no lo es
         self.env.ref('maya_core.group_MNGT_FP').write({'users': [(3, self.user_id.id, 0)]})
