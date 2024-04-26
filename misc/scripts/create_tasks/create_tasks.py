@@ -40,7 +40,7 @@ username = 'admin'
 password = 'admin'
 
 # tipo de keys soportadas
-tasks_keys = ['validation', 'pfc_1', 'pfc_2', 'cancel', 'renounce']
+tasks_keys = ['validation', 'validation_claim', 'competence', 'competence_claim', 'pfc_1', 'pfc_2', 'cancel', 'renounce']
 
 url = args.url + ':' + args.port
 db = args.database
