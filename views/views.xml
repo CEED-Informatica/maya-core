@@ -572,5 +572,17 @@
     <!-- Menu Configuración -->
     <menuitem name="General" id="maya_core.settings" parent="maya_core.configuration"
               action="maya_core.action_config_settings"/>
+  
+    <!-- REPORT Menu -->
+    <record model="ir.actions.act_window" id="maya_core.action_show_core_reports">
+      <field name="name">Informes Core</field>
+      <field name="res_model">maya_report.report</field>
+      <field name="view_mode">tree</field>
+      <field name="context">{'module': 'maya_core'}</field>
+    </record>
+
+    <menuitem name="Core" id="maya_report.menu_core" parent="maya_report.menu_reports"
+              action="maya_core.action_show_core_reports"/>
+
   </data>
 </odoo>
