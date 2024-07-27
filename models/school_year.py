@@ -990,7 +990,7 @@ class SchoolYear(models.Model):
 
         cron_ids.append(task)
 
-        ## CONVALIDACIONES
+        ## CONVALIDACIONES POR ESTUDIOS
         cron_template = self.env['maya_core.cron_register'].search([('key', '=', 'DVAL')])
         task_name = 'Descarga datos convalidaciones {} desde Aules {}'.format(course.abbr, 
               '/{}'.format(subject.year) if len(list(distinct_subject_tut)) > 1 else '')
@@ -1000,10 +1000,31 @@ class SchoolYear(models.Model):
 
         cron_ids.append(task)
 
-        ## NOTIFICACIONES ALUMNADO
-        cron_template = self.env['maya_core.cron_register'].search([('key', '=', 'NOTV')])
-        task_name = 'Notifica estado convalidaciones {} desde Aules {}'.format(course.abbr, 
+        ## CONVALIDACIONES POR ACREDITACION DE COMPETENCIAS (EXPERIENCIA LABORAL)
+        cron_template = self.env['maya_core.cron_register'].search([('key', '=', 'DVAL')])
+        task_name = 'Descarga datos convalidaciones por experiencia laboral {} desde Aules {}'.format(course.abbr, 
               '/{}'.format(subject.year) if len(list(distinct_subject_tut)) > 1 else '')
+        job_data.task_id = classroom_id.get_task_id_by_key('competence')
+        task_data = self.cron_template2task(cron_template, task_name, str(job_data))
+        task = (0, 0, task_data)
+
+        cron_ids.append(task)
+
+        ## NOTIFICACIONES ALUMNADO CONVALIDACIONES DE ESTUDIOS
+        cron_template = self.env['maya_core.cron_register'].search([('key', '=', 'NOTV')])
+        task_name = 'Notifica estado convalidaciones por estudios de {} desde Aules {}'.format(course.abbr, 
+              '/{}'.format(subject.year) if len(list(distinct_subject_tut)) > 1 else '')
+        job_data.task_id = classroom_id.get_task_id_by_key('validation')
+        job_data.type = 0 # STUDIES_VAL
+        task_data = self.cron_template2task(cron_template, task_name, str(job_data))
+        task = (0, 0, task_data)
+
+        ## NOTIFICACIONES ALUMNADO CONVALIDACIONES EXPERIENCIA PROFESIONAL
+        cron_template = self.env['maya_core.cron_register'].search([('key', '=', 'NOTV')])
+        task_name = 'Notifica estado convalidaciones por experiencia laboral de {} desde Aules {}'.format(course.abbr, 
+              '/{}'.format(subject.year) if len(list(distinct_subject_tut)) > 1 else '')
+        job_data.task_id = classroom_id.get_task_id_by_key('competence')
+        job_data.type = 1 # COMPETENCY_VAL
         task_data = self.cron_template2task(cron_template, task_name, str(job_data))
         task = (0, 0, task_data)
 
@@ -1043,25 +1064,6 @@ class SchoolYear(models.Model):
         for subject in distinct_subject_tut:   
           classroom_id = subject.get_classroom_by_course_id(course)  
       
-          ## NOTIFICACIONES ALUMNADO
-          task = (0, 0, {
-            'model_id': record.env.ref('maya_core.model_maya_core_classroom'),
-            'name': 'Notifica estado convalidaciones {} en Aules {}'.format(course.abbr, 
-              '/{}'.format(subject.year) if len(list(distinct_subject_tut)) > 1 else ''),
-            'active': True,
-            'interval_number': 1,
-            'interval_type': 'days',
-            'numbercall': 60,     # número de veces que será ejecutada la tarea
-            'doall': 1,           # si el servidor cae, cuado se reinicie lanzar las tareas no ejecutadas
-            'nextcall': '2023-03-02 00:27:59',
-            'state': 'code',
-            'code': 'model.cron_notify_validations({}, {}, {})'
-              .format(classroom_id.moodle_id,
-                classroom_id.get_task_id_by_key('validation'),
-                course.id),
-          })
-
-          cron_ids.append(task)
 
           ## NOTIFICACIONES INMEDIATAS (60') ALUMNO
           task = (0, 0, {
@@ -1083,23 +1085,7 @@ class SchoolYear(models.Model):
 
           cron_ids.append(task)
 
-          ## COMPROBACION SUBSANACIONES FUERA DE PLAZO
-          task = (0, 0, {
-            'model_id': record.env.ref('maya_core.model_maya_core_classroom'),
-            'name': 'Comprobación subsanaciones fuera de plazo {} en Aules {}'.format(course.abbr, 
-              '/{}'.format(subject.year) if len(list(distinct_subject_tut)) > 1 else ''),
-            'active': True,
-            'interval_number': 1,
-            'interval_type': 'days',
-            'numbercall': 60,     # número de veces que será ejecutada la tarea
-            'doall': 0,           # si el servidor cae, cuado se reinicie lanzar las tareas no ejecutadas
-            'nextcall': '2023-03-02 00:27:59',
-            'state': 'code',
-            'code': 'model.cron_check_deadline_validations({})'
-              .format(course.id),
-          })
-
-          cron_ids.append(task)
+    
 
       _logger.info(cron_ids)
     
