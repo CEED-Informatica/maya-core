@@ -1,3 +1,5 @@
 id,key,description,course_abbr,classroom_code 
-291712,validation,Entrega de convalidaciones y aprobados con anterioridad,DAW,SEG9_CEE_46025799_2022_845104_TUT0
-4,validation,Entrega de convalidaciones y aprobados con anterioridad,DAM,SEG9_CEE_46025799_2022_836104_TUT0
+291712,validation,Entrega de convalidaciones y aprobados con anterioridad,DAW,SEG9_CEE_46025799_2022_845104_TUT02CF
+179,validation,Entrega de convalidaciones y aprobados con anterioridad,DAM,SEG9_CEE_46025799_2022_836104_TU02CF
+180,competence,Entrega de convalidaciones por acreditación de competencias,DAM,SEG9_CEE_46025799_2022_836104_TU02CF
+182,validation_claim,Entrega reclamación resolución convalidaciones,DAM,SEG9_CEE_46025799_2022_836104_TU02CF
