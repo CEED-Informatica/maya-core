@@ -74,7 +74,7 @@ hero_height: is-fullwidth
 
     ```
     $ docker exec -it odoodock-web-1 bash
-    > cd /mnt/extra-addons/misc/scripts/create_users
+    > cd /mnt/extra-addons/maya_core/misc/scripts/create_users
     > chmod +x create_users.py
     > ./create_users.py -sr USERADMIN -ps PASSADMIN -db NOMDB FICHERO.csv 
     ```
@@ -82,3 +82,30 @@ hero_height: is-fullwidth
     > El script _create_users.py_ dispone de más opciones que pueden ser consultadas mediante el parámetro _-h_
 
     > El script detecta si los usuarios ya existen y los mantiene, por lo que puede ser ejecutado multiples veces para añadir a nuevos usuarios.
+
+8. [ ] Creación de aulas virtuales (classrooms)
+
+    Utilizando de plantilla el fichero _[PWD_MODULO]/misc/scripts/classrom_demo.csv_ añadir todos las aulas virtuales del sistema para posteriormente incorporarlos a **Maya** mediante el script _[PWD_MODULO]/misc/scripts/create_classrooms/create_classrooms.py_
+
+    ```
+    cd [PWD_MODULO]/misc/scripts/create_classrooms/
+    chmod +x create_classrooms.py
+    ./create_classrooms.py -sr USERADMIN -ps PASSADMIN -db NOMDB FICHERO.csv 
+    ```
+    donde: 
+
+      * USERADMIN: usuario administrador.
+      * PASSADMIN: pasword del usuario administrador.
+      * NOMDB: es el nombre de la base de datos. 
+      * FICHERO.csv: fichero con los datos de los usuarios.
+
+    En el caso de estar trabajando con [odoodock](https://aoltra.github.io/odoodock/) hay que ejecutar el script desde dentro del contenedor:
+
+    ```
+    $ docker exec -it odoodock-web-1 bash
+    > cd /mnt/extra-addons/maya_core/misc/scripts/create_classrooms
+    > chmod +x create_classrooms.py
+    > ./create_classrooms.py -sr USERADMIN -ps PASSADMIN -db NOMDB FICHERO.csv 
+    ```
+
+    > El script _create_classrooms.py_ dispone de más opciones que pueden ser consultadas mediante el parámetro _-h_
