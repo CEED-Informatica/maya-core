@@ -20,12 +20,15 @@ class CronJobData:
   course_id: int = None
   subject_id: int = None
   task_id: int = field(default = None, init = False, repr = False) # el objeto se podrá crear sin el atributo task_id
+  task2_id: int = field(default = None, init = False, repr = False) # el objeto se podrá crear sin el atributo task2_id
    
   def __str__(self) -> str:
-    if self.task_id == None:
+    if self.task_id == None and self.task2_id == None:
       return f'{self.classroom_id}, {self.course_id}, {self.subject_id}'
-    else:
+    elif self.task2_id == None:
       return f'{self.classroom_id}, {self.course_id}, {self.subject_id}, {self.task_id}'
+    else:
+      return f'{self.classroom_id}, {self.course_id}, {self.subject_id}, {self.task_id}, {self.task2_id}'
 
 class CronRegister(models.Model):
   """
