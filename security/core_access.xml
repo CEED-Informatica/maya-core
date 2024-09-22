@@ -1,7 +1,7 @@
 <odoo>
   <data>
     <!-- ******************************************************** -->
-    <!-- permisos sobre el modelo de convalidaciones (validation) -->
+    <!-- permisos sobre modelos                                   -->
     <!-- ******************************************************** -->
 
     <!-- permisos Ciclos -->
