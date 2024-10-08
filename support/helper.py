@@ -65,7 +65,10 @@ def get_data_from_pdf(pdf_file: str, template: list):
     for field in template:
       fields[field[0]] = (field[4], inttype2string(field[3]))
 
-    doc = fitz.open(pdf_file, filetype="pdf")
+    try:
+      doc = fitz.open(pdf_file, filetype="pdf")
+    except:
+      raise Exception("No es posible leer el pdf")
       
     for page in doc:
         
