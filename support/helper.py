@@ -99,7 +99,7 @@ def get_data_from_pdf(pdf_file: str, template: list):
           for span in line['spans']:
             x0, y0 = span['origin'] 
             for field in template:                         
-              if isclose(x0, field[1], abs_tol = 3) and isclose(y0, field[2], abs_tol = 3.5) :            
+              if isclose(x0, field[1], abs_tol = 3.5) and isclose(y0, field[2], abs_tol = 3.5) :            
                 if field[3] == 2:
                   if len(span['text']) == 1: # al estar tan cerca los bloques, la holgura pudiera coger otros elementos
                                              # nos aseguramos de que solo tenga un caracter
