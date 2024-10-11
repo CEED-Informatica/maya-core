@@ -60,6 +60,7 @@ def get_data_from_pdf(pdf_file: str, template: list):
         }.get(int_type)
     
     fields = {}
+    fields_w = {}
 
     # inicializo con los valores por defecto
     for field in template:
@@ -77,14 +78,14 @@ def get_data_from_pdf(pdf_file: str, template: list):
       # se intenta leer los fields del formulario
       for field in page.widgets():
          
-        if field.field_name == template[0][0]: # hack para ir elegir un método u otro
-          fields_found = True
+        # if field.field_name == template[0][0]: # hack para ir elegir un método u otro
+        #   fields_found = True
         
-        fields[field.field_name] = (field.field_value, inttype2string(field.field_type))
+        fields_w[field.field_name] = (field.field_value, inttype2string(field.field_type))
         
       # hay fields en el pdf. no hace falta que intente obtenerlos por texto
-      if fields_found:
-        continue
+      # if fields_found:
+      #   continue
         
 
       file_dict = page.get_text('dict')  # Obtengo un diccionario con los datos de la página
@@ -107,7 +108,7 @@ def get_data_from_pdf(pdf_file: str, template: list):
                 else:
                   fields[field[0]] = (span['text'], inttype2string(field[3]))
         
-    return fields
+    return fields, fields_w
  
 def create_HTML_list_from_list(data_list, intro = '', ident = True) -> str:
     """
