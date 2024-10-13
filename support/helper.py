@@ -81,7 +81,7 @@ def get_data_from_pdf(pdf_file: str, template: list):
         # if field.field_name == template[0][0]: # hack para ir elegir un método u otro
         #   fields_found = True
         
-        fields_w[field.field_name] = (field.field_value, inttype2string(field.field_type))
+        fields_w[field.field_name] = (field.field_value.strip(), inttype2string(field.field_type))
         
       # hay fields en el pdf. no hace falta que intente obtenerlos por texto
       # if fields_found:
@@ -106,7 +106,7 @@ def get_data_from_pdf(pdf_file: str, template: list):
                                              # nos aseguramos de que solo tenga un caracter
                     fields[field[0]] = ('Yes', inttype2string(field[3]))
                 else:
-                  fields[field[0]] = (span['text'], inttype2string(field[3]))
+                  fields[field[0]] = (span['text'].strip(), inttype2string(field[3]))
         
     return fields, fields_w
  
