@@ -81,6 +81,10 @@ def get_data_from_pdf(pdf_file: str, template: list):
         # if field.field_name == template[0][0]: # hack para ir elegir un método u otro
         #   fields_found = True
         
+        # en caso de button (casilla de selección) que no tenga valor, le asigno off
+        if field.field_type == 2 and field.field_value.strip() == '':
+          field.field_value = 'Off'
+
         fields_w[field.field_name] = (field.field_value.strip(), inttype2string(field.field_type))
         
       # hay fields en el pdf. no hace falta que intente obtenerlos por texto
