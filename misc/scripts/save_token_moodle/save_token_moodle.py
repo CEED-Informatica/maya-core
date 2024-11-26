@@ -24,6 +24,7 @@ parser = argparse.ArgumentParser(
 
 # argumentos
 parser.add_argument('-mh', '--moodle_host', help = 'URL del servidor Moodle')
+parser.add_argument('-l', '--list', action = 'store_true', help = 'Lista los usuarios maya incluidos en el fichero') # action para version < 3.8, en superior  action=argparse.BooleanOptionalAction
 
 args = parser.parse_args()
 
@@ -36,6 +37,21 @@ if args.moodle_host == None:
     exit()
 else:
   moodle_host = args.moodle_host
+
+
+if args.list:
+  try:
+    with open(os.path.expanduser("~/.maya_moodleteacher"), "rb") as f:
+      users_tokens = pickle.load(f)
+  except Exception:
+    print('\033[0;32m[INFO]\033[0m Fichero ~/.maya_moodleteacher no encontrado.')
+    exit()
+
+  print('\033[0;32m[INFO]\033[0m Número de tokens actuales:', len(users_tokens))
+  for user in users_tokens:
+    print(user)
+
+  exit()
 
 print('\033[0;32m[INFO]\033[0m IMPORTANTE: Este script debe ejecutarse en la máquina o contenedor HOST')
 print('\033[0;32m[INFO]\033[0m La contraseña solicitada no es almacenada. Sólo se utiliza para obtener el token de acceso a Moodle')
