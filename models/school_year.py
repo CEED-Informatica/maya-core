@@ -1021,6 +1021,17 @@ class SchoolYear(models.Model):
 
         cron_ids.append(task)
 
+        ## NOTIFICACIONES RECLAMACION ALUMNADO
+        cron_template = self.env['maya_core.cron_register'].search([('key', '=', 'NTCV')])
+        task_name = 'Notifica estado reclamación convalidaciones {} desde Aules {}'.format(course.abbr, 
+              '/{}'.format(subject.year) if len(list(distinct_subject_tut)) > 1 else '')
+        job_data.task_id = classroom_id.get_task_id_by_key('validation_claim')
+        job_data.task2_id = None
+        task_data = self.cron_template2task(cron_template, task_name, str(job_data))
+        task = (0, 0, task_data)
+
+        cron_ids.append(task)
+
 
     # añade nuevos registro, pero los mantiene en "el aire" hasta que se grabe el school_year 
     self.cron_ids = cron_ids
