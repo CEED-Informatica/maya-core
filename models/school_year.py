@@ -980,7 +980,7 @@ class SchoolYear(models.Model):
           _logger.error(f'No hay definida en Maya un aula virtual de tutoria para {course.name}')
           continue
   
-        job_data = CronJobData(classroom_id.moodle_id, course.id, subject.id)
+        # job_data = CronJobData(classroom_id.moodle_id, course.id, subject.id)
 
         ## MATRICULA 
         cron_template = self.env['maya_core.cron_register'].search([('key', '=', 'MTAL')])
@@ -1076,6 +1076,22 @@ class SchoolYear(models.Model):
                      'course_id': course.id,
                      'subject_id': subject.id,
                      'validation_task_id': classroom_id.get_task_id_by_key('competence'), 
+                     'val_type': 1 }
+        
+        task_data = self.cron_template2task(cron_template, task_name, **job_data)
+        task = (0, 0, task_data)
+
+        cron_ids.append(task)
+
+         ## NOTIFICACIONES ALUMNADO
+        cron_template = self.env['maya_core.cron_register'].search([('key', '=', 'NVUC')])
+        task_name = 'Notifica estado convalidaciones por competencias {} desde Aules {}'.format(course.abbr, 
+              '/{}'.format(subject.year) if len(list(distinct_subject_tut)) > 1 else '')
+        
+        job_data = { 'validation_classroom_id': classroom_id.moodle_id, 
+                     'course_id': course.id,
+                     'validation_task_id': classroom_id.get_task_id_by_key('competence'), 
+                     'validation_claim_task_id': classroom_id.get_task_id_by_key('competence_claim'), 
                      'val_type': 1 }
         
         task_data = self.cron_template2task(cron_template, task_name, **job_data)
